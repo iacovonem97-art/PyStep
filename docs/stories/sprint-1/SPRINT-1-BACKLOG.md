@@ -1,3 +1,16 @@
+# Sprint 1 - Etat global
+
+| Story | Points | Statut | Tests |
+|-------|--------|--------|-------|
+| STORY-001 | 5 | DONE | 93 |
+| STORY-002 | 8 | DONE | +65 = 158 |
+| STORY-003 | 5 | DONE | +36 = 194 |
+| STORY-004 | 2 | **DONE** | +18 = 212 |
+
+**20/20 points livres. Sprint 1 COMPLET.**
+
+---
+
 # Sprint 1 Backlog
 
 > **Sprint Goal**: Livrer une landing page publique avec système d'authentification complet
@@ -22,16 +35,16 @@
 ## Execution Order
 
 ```
-STORY-001 (Landing Page)
+STORY-001 (Landing Page)       ✅ DONE
     │
     ▼
-STORY-002 (Registration) ──────┐
+STORY-002 (Registration) ──────┐  ✅ DONE
     │                          │
     ▼                          │
-STORY-003 (Login) ─────────────┤
+STORY-003 (Login) ─────────────┤  ✅ DONE
     │                          │
     ▼                          │
-STORY-004 (Logout) ◄───────────┘
+STORY-004 (Logout) ◄───────────┘  ✅ DONE
 ```
 
 ### Rationale
@@ -67,9 +80,9 @@ Before starting Sprint 1:
 - [x] Vitest + Testing Library ✅
 - [x] ESLint 9 ✅
 - [x] GitHub Actions CI ✅
-- [ ] React Router configured
-- [ ] Supabase project created
-- [ ] Environment variables setup
+- [x] React Router configured ✅
+- [x] Supabase project created ✅
+- [x] Environment variables setup ✅
 
 ---
 
@@ -77,25 +90,24 @@ Before starting Sprint 1:
 
 ### Must Have (Bloquant pour validation sprint)
 
-- [ ] Landing page complète et responsive
-- [ ] Inscription fonctionnelle avec Supabase
-- [ ] Connexion fonctionnelle avec Supabase
-- [ ] Déconnexion fonctionnelle
-- [ ] Routes protégées pour dashboard
-- [ ] 100% tests passing
-- [ ] Aucune erreur console critique
+- [x] Landing page complète et responsive
+- [x] Inscription fonctionnelle avec Supabase
+- [x] Connexion fonctionnelle avec Supabase
+- [x] Déconnexion fonctionnelle
+- [x] Routes protégées pour dashboard
+- [x] 100% tests passing (212/212)
+- [x] Aucune erreur console critique
 
 ### Should Have
 
-- [ ] Animations de transition basiques
-- [ ] Loading states polish
-- [ ] Error messages UX-friendly
+- [x] Loading states polish
+- [x] Error messages UX-friendly
 
 ---
 
 ## Definition of Done (Sprint Level)
 
-- [ ] Toutes les stories à "Done"
+- [x] Toutes les stories à "Done"
 - [ ] Démo réussie au Product Owner
 - [ ] Déployé sur Vercel preview
 - [ ] Documentation mise à jour
