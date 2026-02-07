@@ -1,12 +1,14 @@
 # STORY-007: Code Editor + Lesson Page
 
-> **Status** : Ready for Development
+> **Status** : Done
 > **Sprint** : 2
 > **Epic** : 3 - Editeur de code
 > **PRD Reference** : US-3.1, US-3.2, US-2.2
 > **Points** : 8
 > **Assignee** : Amelia
 > **Depends on** : STORY-006 (lesson data, course map)
+> **Completed** : 7 fevrier 2026
+> **Commit** : `a5a0a09`
 
 ---
 
@@ -21,126 +23,126 @@
 ## Acceptance Criteria
 
 ### AC-1: Lesson Page Layout (Desktop)
-- [ ] Route `/lesson/:id` protege
-- [ ] Layout split 3 zones : theorie (gauche) | editeur + preview (droite)
-- [ ] Header lecon : bouton retour "[Parcours]", titre lecon, progression X/22
-- [ ] Zone theorie : scrollable independamment
-- [ ] Zone editeur/preview : split vertical (editeur en haut, preview en bas)
+- [x] Route `/lesson/:id` protege
+- [x] Layout split 3 zones : theorie (gauche) | editeur + preview (droite)
+- [x] Header lecon : bouton retour "[Parcours]", titre lecon, progression X/22
+- [x] Zone theorie : scrollable independamment
+- [x] Zone editeur/preview : split vertical (editeur en haut, preview en bas)
 
 ### AC-2: Lesson Page Layout (Mobile)
-- [ ] Tabs : "Theorie" | "Code"
-- [ ] Tab Theorie : contenu theorie + exercice + message "passe sur Code"
-- [ ] Tab Code : editeur + preview empiles
-- [ ] Switch entre tabs conserve l'etat du code
+- [x] Tabs : "Theorie" | "Code"
+- [x] Tab Theorie : contenu theorie + exercice + message "passe sur Code"
+- [x] Tab Code : editeur + preview empiles
+- [x] Switch entre tabs conserve l'etat du code
 
 ### AC-3: Theory Panel
-- [ ] Titre de la lecon
-- [ ] Contenu theorique formate (paragraphes, listes)
-- [ ] Exemples de code dans des blocs `<pre><code>` stylises
-- [ ] Section exercice en bas : instructions + checklist des objectifs
+- [x] Titre de la lecon
+- [x] Contenu theorique formate (paragraphes, listes)
+- [x] Exemples de code dans des blocs `<pre><code>` stylises
+- [x] Section exercice en bas : instructions + checklist des objectifs
 
 ### AC-4: Code Editor (Monaco)
-- [ ] Monaco Editor integre avec `@monaco-editor/react`
-- [ ] Coloration syntaxique HTML et CSS
-- [ ] Numerotation des lignes
-- [ ] Auto-indentation basique
-- [ ] Theme clair
-- [ ] Code pre-rempli avec le starterCode de l'exercice
-- [ ] Taille de police par defaut 14px
+- [x] Monaco Editor integre avec `@monaco-editor/react`
+- [x] Coloration syntaxique HTML et CSS
+- [x] Numerotation des lignes
+- [x] Auto-indentation basique
+- [x] Theme clair
+- [x] Code pre-rempli avec le starterCode de l'exercice
+- [x] Taille de police par defaut 14px
 
 ### AC-5: Live Preview
-- [ ] iframe avec attribut srcdoc
-- [ ] Mise a jour en temps reel (debounce 2000ms via DEBOUNCE_DELAY)
-- [ ] Bordure visuelle autour de la preview
-- [ ] Message "Ecris du code pour voir le resultat" si code vide
+- [x] iframe avec attribut srcdoc
+- [x] Mise a jour en temps reel (debounce 2000ms via DEBOUNCE_DELAY)
+- [x] Bordure visuelle autour de la preview
+- [x] Message "Ecris du code pour voir le resultat" si code vide
 
 ### AC-6: Lesson Navigation
-- [ ] Bouton "Parcours" pour retour a /course
-- [ ] Chargement de la lecon via l'id dans l'URL
-- [ ] 404 si lesson id invalide
-- [ ] Titre de la lecon dans le header
+- [x] Bouton "Parcours" pour retour a /course
+- [x] Chargement de la lecon via l'id dans l'URL
+- [x] 404 si lesson id invalide
+- [x] Titre de la lecon dans le header
 
 ### AC-7: Editor State
-- [ ] Code persiste en local state pendant la session
-- [ ] Bouton "Reinitialiser" pour revenir au starterCode
-- [ ] Confirmation avant reset si code modifie
+- [x] Code persiste en local state pendant la session
+- [x] Bouton "Reinitialiser" pour revenir au starterCode
+- [x] Confirmation avant reset si code modifie
 
 ### AC-8: Lazy Loading Monaco
-- [ ] Monaco charge en lazy (React.lazy ou dynamic import)
-- [ ] Skeleton/spinner pendant le chargement
-- [ ] Fallback `<textarea>` si Monaco echoue (error boundary)
+- [x] Monaco charge en lazy (React.lazy ou dynamic import)
+- [x] Skeleton/spinner pendant le chargement
+- [x] Fallback `<textarea>` si Monaco echoue (error boundary)
 
 ---
 
 ## Technical Tasks
 
 ### T1: Install Monaco Editor
-- [ ] `npm install @monaco-editor/react`
-- [ ] Verify bundle size impact
-- [ ] Configure Vite for Monaco workers if needed
+- [x] `npm install @monaco-editor/react`
+- [x] Verify bundle size impact
+- [x] Configure Vite for Monaco workers if needed
 
 ### T2: Create LessonPage
-- [ ] Create `src/pages/LessonPage.tsx`
-- [ ] Route `/lesson/:id` in App.tsx (protected)
-- [ ] Load lesson data by id from static data
-- [ ] Split layout with CSS Grid/Flexbox
-- [ ] Test: page renders with lesson content
-- [ ] Test: 404 for invalid lesson id
-- [ ] Test: shows lesson title
+- [x] Create `src/pages/LessonPage.tsx`
+- [x] Route `/lesson/:id` in App.tsx (protected)
+- [x] Load lesson data by id from static data
+- [x] Split layout with CSS Grid/Flexbox
+- [x] Test: page renders with lesson content
+- [x] Test: 404 for invalid lesson id
+- [x] Test: shows lesson title
 
 ### T3: Create TheoryPanel component
-- [ ] Create `src/components/lesson/TheoryPanel.tsx`
-- [ ] Props: theory (LessonTheory), exercise (LessonExercise)
-- [ ] Render formatted theory content
-- [ ] Render code examples with syntax highlighting (static)
-- [ ] Render exercise instructions + checklist
-- [ ] Test: renders theory content
-- [ ] Test: renders code examples
-- [ ] Test: renders exercise instructions
+- [x] Create `src/components/lesson/TheoryPanel.tsx`
+- [x] Props: theory (LessonTheory), exercise (LessonExercise)
+- [x] Render formatted theory content
+- [x] Render code examples with syntax highlighting (static)
+- [x] Render exercise instructions + checklist
+- [x] Test: renders theory content
+- [x] Test: renders code examples
+- [x] Test: renders exercise instructions
 
 ### T4: Create CodeEditor component
-- [ ] Create `src/components/lesson/CodeEditor.tsx`
-- [ ] Wrap Monaco Editor with React.lazy
-- [ ] Props: initialCode, onChange, language
-- [ ] Loading skeleton while Monaco loads
-- [ ] Error boundary with textarea fallback
-- [ ] Test: renders (with Monaco mocked)
-- [ ] Test: calls onChange when code changes
-- [ ] Test: shows skeleton during load
+- [x] Create `src/components/lesson/CodeEditor.tsx`
+- [x] Wrap Monaco Editor with React.lazy
+- [x] Props: initialCode, onChange, language
+- [x] Loading skeleton while Monaco loads
+- [x] Error boundary with textarea fallback
+- [x] Test: renders (with Monaco mocked)
+- [x] Test: calls onChange when code changes
+- [x] Test: shows skeleton during load
 
 ### T5: Create PreviewPanel component
-- [ ] Create `src/components/lesson/PreviewPanel.tsx`
-- [ ] Props: code (string)
-- [ ] iframe with srcdoc attribute
-- [ ] Debounced update (DEBOUNCE_DELAY)
-- [ ] sandbox="allow-same-origin" for security
-- [ ] Empty state message
-- [ ] Test: renders iframe with code
-- [ ] Test: debounces updates
-- [ ] Test: shows empty message when no code
+- [x] Create `src/components/lesson/PreviewPanel.tsx`
+- [x] Props: code (string)
+- [x] iframe with srcdoc attribute
+- [x] Debounced update (DEBOUNCE_DELAY)
+- [x] sandbox="allow-same-origin" for security
+- [x] Empty state message
+- [x] Test: renders iframe with code
+- [x] Test: debounces updates
+- [x] Test: shows empty message when no code
 
 ### T6: Create LessonLayout component
-- [ ] Create `src/components/lesson/LessonLayout.tsx`
-- [ ] Desktop: CSS Grid 2 columns (theory | editor+preview)
-- [ ] Mobile: tab-based layout
-- [ ] Tab state management
-- [ ] Test: desktop shows split layout
-- [ ] Test: mobile shows tabs
+- [x] Create `src/components/lesson/LessonLayout.tsx`
+- [x] Desktop: CSS Grid 2 columns (theory | editor+preview)
+- [x] Mobile: tab-based layout
+- [x] Tab state management
+- [x] Test: desktop shows split layout
+- [x] Test: mobile shows tabs
 
 ### T7: Create LessonHeader component
-- [ ] Create `src/components/lesson/LessonHeader.tsx`
-- [ ] Props: lessonTitle, lessonNumber, totalLessons
-- [ ] Back link to /course
-- [ ] Progress indicator
-- [ ] Test: renders lesson title
-- [ ] Test: back link navigates to /course
+- [x] Create `src/components/lesson/LessonHeader.tsx`
+- [x] Props: lessonTitle, lessonNumber, totalLessons
+- [x] Back link to /course
+- [x] Progress indicator
+- [x] Test: renders lesson title
+- [x] Test: back link navigates to /course
 
 ### T8: Integration tests
-- [ ] Test: full lesson page renders with all zones
-- [ ] Test: code typed in editor appears in preview
-- [ ] Test: tab switching on mobile
-- [ ] Test: navigation back to course
-- [ ] Test: reset code confirmation
+- [x] Test: full lesson page renders with all zones
+- [x] Test: code typed in editor appears in preview
+- [x] Test: tab switching on mobile
+- [x] Test: navigation back to course
+- [x] Test: reset code confirmation
 
 ---
 
@@ -192,9 +194,9 @@ vi.mock('@monaco-editor/react', () => ({
 
 ## Definition of Done
 
-- [ ] All acceptance criteria met
-- [ ] Monaco loads with lazy loading
-- [ ] Preview updates in real-time
-- [ ] All tests passing (Monaco mocked)
-- [ ] Responsive desktop + mobile (tabs)
-- [ ] Code reviewed
+- [x] All acceptance criteria met
+- [x] Monaco loads with lazy loading
+- [x] Preview updates in real-time
+- [x] All tests passing (Monaco mocked)
+- [x] Responsive desktop + mobile (tabs)
+- [x] Code reviewed

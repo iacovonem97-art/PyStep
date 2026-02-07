@@ -85,18 +85,18 @@ STORY-008 (Validation + Feedback) 4 pts
 
 ### Must Have (bloquant pour validation sprint)
 
-- [ ] Dashboard accessible apres login (/dashboard protege)
-- [ ] Carte du parcours avec 5 modules et lecons Module 1
-- [ ] Editeur de code avec coloration syntaxique HTML/CSS
-- [ ] Preview live du code dans iframe
-- [ ] Validation d'exercice avec feedback success/erreur
-- [ ] Navigation entre lecons
-- [ ] Responsive desktop + mobile
-- [ ] 100% tests passing
+- [x] Dashboard accessible apres login (/dashboard protege)
+- [x] Carte du parcours avec 5 modules et lecons Module 1
+- [x] Editeur de code avec coloration syntaxique HTML/CSS
+- [x] Preview live du code dans iframe
+- [x] Validation d'exercice avec feedback success/erreur
+- [x] Navigation entre lecons
+- [x] Responsive desktop + mobile
+- [x] 100% tests passing
 
 ### Should Have
 
-- [ ] Indices progressifs (3 niveaux)
+- [x] Indices progressifs (3 niveaux)
 - [ ] Layout resizable (editeur/preview)
 - [ ] Animation de succes
 
@@ -104,12 +104,12 @@ STORY-008 (Validation + Feedback) 4 pts
 
 ## Definition of Done (Sprint Level)
 
-- [ ] Toutes les stories a "Done"
-- [ ] Tests passing (objectif : +100 tests)
-- [ ] Responsive sur mobile/tablet/desktop
-- [ ] Code reviewed
+- [x] Toutes les stories a "Done"
+- [x] Tests passing (objectif : +100 tests) -- 356 tests (+144)
+- [x] Responsive sur mobile/tablet/desktop
+- [x] Code reviewed
 - [ ] Deploye sur Vercel preview
-- [ ] Documentation mise a jour
+- [x] Documentation mise a jour
 
 ---
 
