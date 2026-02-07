@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { Menu, X, LogOut } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { useAuthContext } from '@/contexts/AuthContext'
@@ -10,6 +10,7 @@ export default function Header() {
   const { user } = useAuthContext()
   const { signOut, loading } = useAuth()
   const navigate = useNavigate()
+  const location = useLocation()
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen)
@@ -38,6 +39,24 @@ export default function Header() {
           <nav className="hidden md:flex items-center gap-4">
             {user ? (
               <>
+                <Link
+                  to="/dashboard"
+                  className={cn(
+                    'text-gray-600 hover:text-gray-900 font-medium px-4 py-2 transition-colors',
+                    location.pathname === '/dashboard' && 'text-indigo-600 font-semibold'
+                  )}
+                >
+                  Dashboard
+                </Link>
+                <Link
+                  to="/course"
+                  className={cn(
+                    'text-gray-600 hover:text-gray-900 font-medium px-4 py-2 transition-colors',
+                    location.pathname === '/course' && 'text-indigo-600 font-semibold'
+                  )}
+                >
+                  Parcours
+                </Link>
                 <span className="text-gray-600 text-sm">{user.email}</span>
                 <button
                   type="button"
@@ -97,6 +116,26 @@ export default function Header() {
           {user ? (
             <>
               <span className="block text-gray-500 text-sm px-4 py-2">{user.email}</span>
+              <Link
+                to="/dashboard"
+                className={cn(
+                  'block text-gray-600 hover:text-gray-900 font-medium px-4 py-3 rounded-lg hover:bg-gray-50 transition-colors',
+                  location.pathname === '/dashboard' && 'text-indigo-600 bg-indigo-50'
+                )}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Dashboard
+              </Link>
+              <Link
+                to="/course"
+                className={cn(
+                  'block text-gray-600 hover:text-gray-900 font-medium px-4 py-3 rounded-lg hover:bg-gray-50 transition-colors',
+                  location.pathname === '/course' && 'text-indigo-600 bg-indigo-50'
+                )}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Parcours
+              </Link>
               <button
                 type="button"
                 onClick={() => {

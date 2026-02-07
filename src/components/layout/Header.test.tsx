@@ -146,6 +146,22 @@ describe('Header', () => {
       expect(screen.queryByRole('link', { name: /s'inscrire/i })).not.toBeInTheDocument()
     })
 
+    // === T5: Authenticated nav links (STORY-005) ===
+
+    it('should show "Dashboard" link when logged in', () => {
+      renderHeader()
+      const dashboardLinks = screen.getAllByRole('link', { name: /dashboard/i })
+      expect(dashboardLinks.length).toBeGreaterThan(0)
+      expect(dashboardLinks[0]).toHaveAttribute('href', '/dashboard')
+    })
+
+    it('should show "Parcours" link when logged in', () => {
+      renderHeader()
+      const parcoursLinks = screen.getAllByRole('link', { name: /parcours/i })
+      expect(parcoursLinks.length).toBeGreaterThan(0)
+      expect(parcoursLinks[0]).toHaveAttribute('href', '/course')
+    })
+
     // === T3: Logout action tests ===
 
     it('should call signOut when logout button is clicked', async () => {
@@ -174,5 +190,11 @@ describe('Header', () => {
   it('should NOT show "Déconnexion" when logged out', () => {
     renderHeader()
     expect(screen.queryByRole('button', { name: /déconnexion/i })).not.toBeInTheDocument()
+  })
+
+  it('should NOT show "Dashboard" or "Parcours" when logged out', () => {
+    renderHeader()
+    expect(screen.queryByRole('link', { name: /dashboard/i })).not.toBeInTheDocument()
+    expect(screen.queryByRole('link', { name: /parcours/i })).not.toBeInTheDocument()
   })
 })
