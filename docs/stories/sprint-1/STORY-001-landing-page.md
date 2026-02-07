@@ -1,11 +1,13 @@
 # STORY-001: Landing Page
 
-> **Status**: Implementation Complete (Pending Review)
+> **Status**: Done
 > **Sprint**: 1
 > **Epic**: 4 - Pages statiques
 > **PRD Reference**: US-4.1
 > **Points**: 5
 > **Assignee**: Amelia
+> **Completed**: 6 fevrier 2026
+> **Commit**: `df76e38`
 
 ---
 
@@ -151,8 +153,8 @@
 - [x] All tests passing (unit + integration) - **93 tests passing**
 - [x] Responsive on mobile/tablet/desktop
 - [x] Accessibility audit passed (basic checks)
-- [ ] Code reviewed
-- [ ] Deployed to preview
+- [x] Code reviewed
+- [x] Deployed to preview -- https://pystep.vercel.app
 
 ---
 

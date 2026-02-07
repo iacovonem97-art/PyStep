@@ -108,10 +108,10 @@ Before starting Sprint 1:
 ## Definition of Done (Sprint Level)
 
 - [x] Toutes les stories à "Done"
-- [ ] Démo réussie au Product Owner
-- [ ] Déployé sur Vercel preview
-- [ ] Documentation mise à jour
-- [ ] Retrospective conduite
+- [x] Démo réussie au Product Owner
+- [x] Déployé sur Vercel preview -- https://pystep.vercel.app
+- [x] Documentation mise à jour
+- [x] Retrospective conduite -- SPRINT-1-RETRO.md
 
 ---
 

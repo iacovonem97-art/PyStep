@@ -1,12 +1,14 @@
 # STORY-003: User Login
 
-> **Status**: Ready for Development
+> **Status**: Done
 > **Sprint**: 1
 > **Epic**: 1 - Authentification
 > **PRD Reference**: US-1.2
 > **Points**: 5
 > **Assignee**: Amelia
 > **Depends on**: STORY-002 (AuthForm, Input, Button, AuthContext)
+> **Completed**: 6 fevrier 2026
+> **Commit**: `ea84bff`
 
 ---
 
@@ -21,98 +23,98 @@
 ## Acceptance Criteria
 
 ### AC-1: Login Form
-- [ ] Input email avec label "Email"
-- [ ] Input password avec label "Mot de passe"
-- [ ] Toggle visibility (eye icon) sur le champ password
-- [ ] Checkbox "Rester connecté"
-- [ ] Bouton submit "Se connecter"
-- [ ] Lien "Mot de passe oublié ?" sous le champ password
+- [x] Input email avec label "Email"
+- [x] Input password avec label "Mot de passe"
+- [x] Toggle visibility (eye icon) sur le champ password
+- [x] Checkbox "Rester connecté"
+- [x] Bouton submit "Se connecter"
+- [x] Lien "Mot de passe oublié ?" sous le champ password
 
 ### AC-2: Welcome Message
-- [ ] Titre: "Bon retour ! 👋"
-- [ ] Sous-titre: "Reprends là où tu en étais."
+- [x] Titre: "Bon retour ! 👋"
+- [x] Sous-titre: "Reprends là où tu en étais."
 
 ### AC-3: Form Validation
-- [ ] Email requis et format valide
-- [ ] Password requis
-- [ ] Validation au submit
-- [ ] Focus sur premier champ en erreur
+- [x] Email requis et format valide
+- [x] Password requis
+- [x] Validation au submit
+- [x] Focus sur premier champ en erreur
 
 ### AC-4: Supabase Authentication
-- [ ] Appel `supabase.auth.signInWithPassword({ email, password })`
-- [ ] État loading pendant l'appel
-- [ ] Désactivation bouton pendant loading
+- [x] Appel `supabase.auth.signInWithPassword({ email, password })`
+- [x] État loading pendant l'appel
+- [x] Désactivation bouton pendant loading
 
 ### AC-5: Success Flow
-- [ ] Redirection vers /dashboard après connexion
-- [ ] Session persistante si "Rester connecté" coché
-- [ ] Utilisation de session storage si non coché
+- [x] Redirection vers /dashboard après connexion
+- [x] Session persistante si "Rester connecté" coché
+- [x] Utilisation de session storage si non coché
 
 ### AC-6: Error Handling
-- [ ] Identifiants incorrects: "Email ou mot de passe incorrect"
-- [ ] Erreur réseau: "Une erreur est survenue. Réessaie."
-- [ ] Message affiché via Alert component
+- [x] Identifiants incorrects: "Email ou mot de passe incorrect"
+- [x] Erreur réseau: "Une erreur est survenue. Réessaie."
+- [x] Message affiché via Alert component
 
 ### AC-7: Password Reset Link
-- [ ] Lien "Mot de passe oublié ?" visible
-- [ ] Click ouvre modal ou navigue vers /forgot-password
-- [ ] MVP: peut être une page placeholder
+- [x] Lien "Mot de passe oublié ?" visible
+- [x] Click ouvre modal ou navigue vers /forgot-password
+- [x] MVP: peut être une page placeholder
 
 ### AC-8: Alternative Path
-- [ ] Lien: "Pas encore de compte ? S'inscrire gratuitement"
-- [ ] Navigate vers /register
+- [x] Lien: "Pas encore de compte ? S'inscrire gratuitement"
+- [x] Navigate vers /register
 
 ### AC-9: Responsive & Accessible
-- [ ] Formulaire centré, max-width 400px
-- [ ] Labels associés aux inputs
-- [ ] Navigation clavier complète
-- [ ] Focus management sur erreurs
+- [x] Formulaire centré, max-width 400px
+- [x] Labels associés aux inputs
+- [x] Navigation clavier complète
+- [x] Focus management sur erreurs
 
 ---
 
 ## Technical Tasks
 
 ### T1: Create LoginPage
-- [ ] Create `src/pages/LoginPage.tsx`
-- [ ] Create route `/login` in router
-- [ ] Reuse AuthForm with mode='login'
-- [ ] Test: page renders at /login
+- [x] Create `src/pages/LoginPage.tsx`
+- [x] Create route `/login` in router
+- [x] Reuse AuthForm with mode='login'
+- [x] Test: page renders at /login
 
 ### T2: Extend AuthForm for login mode
-- [ ] Add "Remember me" checkbox
-- [ ] Add "Forgot password" link
-- [ ] Conditional rendering based on mode
-- [ ] Test: login mode shows correct fields
-- [ ] Test: register mode doesn't show checkbox
+- [x] Add "Remember me" checkbox
+- [x] Add "Forgot password" link
+- [x] Conditional rendering based on mode
+- [x] Test: login mode shows correct fields
+- [x] Test: register mode doesn't show checkbox
 
 ### T3: Create Checkbox component
-- [ ] Create `src/components/ui/Checkbox.tsx`
-- [ ] Props: label, checked, onChange
-- [ ] Accessible (label clickable)
-- [ ] Test: toggles on click
-- [ ] Test: keyboard accessible
+- [x] Create `src/components/ui/Checkbox.tsx`
+- [x] Props: label, checked, onChange
+- [x] Accessible (label clickable)
+- [x] Test: toggles on click
+- [x] Test: keyboard accessible
 
 ### T4: Implement login logic
-- [ ] Add `signIn(email, password, remember?)` to useAuth hook
-- [ ] Handle session persistence based on remember
-- [ ] Test: signIn calls supabase
-- [ ] Test: handles success
-- [ ] Test: handles errors
-- [ ] Test: remember me affects session
+- [x] Add `signIn(email, password, remember?)` to useAuth hook
+- [x] Handle session persistence based on remember
+- [x] Test: signIn calls supabase
+- [x] Test: handles success
+- [x] Test: handles errors
+- [x] Test: remember me affects session
 
 ### T5: Create ForgotPasswordPage (placeholder)
-- [ ] Create `src/pages/ForgotPasswordPage.tsx`
-- [ ] Create route `/forgot-password`
-- [ ] Simple form with email input
-- [ ] "Coming soon" message for MVP
-- [ ] Test: page renders
+- [x] Create `src/pages/ForgotPasswordPage.tsx`
+- [x] Create route `/forgot-password`
+- [x] Simple form with email input
+- [x] "Coming soon" message for MVP
+- [x] Test: page renders
 
 ### T6: Integration tests
-- [ ] Test: login with valid credentials
-- [ ] Test: login with invalid credentials
-- [ ] Test: error message display
-- [ ] Test: redirect after success
-- [ ] Test: remember me functionality
+- [x] Test: login with valid credentials
+- [x] Test: login with invalid credentials
+- [x] Test: error message display
+- [x] Test: redirect after success
+- [x] Test: remember me functionality
 
 ---
 
@@ -135,13 +137,13 @@
 
 ## Definition of Done
 
-- [ ] All acceptance criteria met
-- [ ] All tests passing
-- [ ] Error handling complete
-- [ ] Loading states implemented
-- [ ] Responsive on all devices
-- [ ] Code reviewed
-- [ ] Deployed to preview
+- [x] All acceptance criteria met
+- [x] All tests passing
+- [x] Error handling complete
+- [x] Loading states implemented
+- [x] Responsive on all devices
+- [x] Code reviewed
+- [x] Deployed to preview -- https://pystep.vercel.app
 
 ---
 

@@ -1,12 +1,14 @@
 # STORY-004: User Logout
 
-> **Status**: **DONE**
+> **Status**: Done
 > **Sprint**: 1
 > **Epic**: 1 - Authentification
 > **PRD Reference**: US-1.3
 > **Points**: 2
 > **Assignee**: Amelia
 > **Depends on**: STORY-002, STORY-003 (AuthContext, Header)
+> **Completed**: 6 fevrier 2026
+> **Commit**: `ea84bff`
 
 ---
 
@@ -101,8 +103,8 @@
 - [x] All tests passing
 - [x] Protected routes working
 - [x] Header updates correctly
-- [ ] Code reviewed
-- [ ] Deployed to preview
+- [x] Code reviewed
+- [x] Deployed to preview -- https://pystep.vercel.app
 
 ---
 
