@@ -10,7 +10,6 @@ interface LessonHeaderProps {
 }
 
 export function LessonHeader({ lessonTitle, lessonId, totalCompleted }: LessonHeaderProps) {
-  const lessonNumber = parseInt(lessonId.replace('.', ''), 10)
   const progressValue = Math.round((totalCompleted / TOTAL_LESSONS) * 100)
 
   return (

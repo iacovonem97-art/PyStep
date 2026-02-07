@@ -1,4 +1,4 @@
-import { Lightbulb, CheckCircle2, Loader2 } from 'lucide-react'
+import { Lightbulb, CheckCircle2 } from 'lucide-react'
 import { Button } from '../ui/Button'
 
 interface ValidationBarProps {
