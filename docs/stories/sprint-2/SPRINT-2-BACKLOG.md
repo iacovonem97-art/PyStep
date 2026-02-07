@@ -108,7 +108,7 @@ STORY-008 (Validation + Feedback) 4 pts
 - [x] Tests passing (objectif : +100 tests) -- 356 tests (+144)
 - [x] Responsive sur mobile/tablet/desktop
 - [x] Code reviewed
-- [ ] Deploye sur Vercel preview
+- [x] Deploye sur Vercel preview -- https://pystep.vercel.app
 - [x] Documentation mise a jour
 
 ---
