@@ -3,6 +3,7 @@ import { MODULES, MODULES_META, getLessonById, getNextLessonId, getFirstLessonId
 import { module1Lessons } from './lessons/module-1'
 import { module2Lessons } from './lessons/module-2'
 import { module3Lessons } from './lessons/module-3'
+import { module4Lessons } from './lessons/module-4'
 
 describe('Modules Data', () => {
   it('should have 5 modules defined', () => {
@@ -199,6 +200,75 @@ describe('Module 3 Lessons', () => {
   })
 })
 
+describe('Module 4 Lessons', () => {
+  it('should have 5 lessons', () => {
+    expect(module4Lessons).toHaveLength(5)
+  })
+
+  it('should have correct ids 4.1 to 4.5', () => {
+    module4Lessons.forEach((l, i) => {
+      expect(l.id).toBe(`4.${i + 1}`)
+    })
+  })
+
+  it('should have module=4 and sequential order', () => {
+    module4Lessons.forEach((l, i) => {
+      expect(l.module).toBe(4)
+      expect(l.order).toBe(i + 1)
+    })
+  })
+
+  it('should have theory content and at least one example for each lesson', () => {
+    module4Lessons.forEach((l) => {
+      expect(l.theory.content.length).toBeGreaterThan(0)
+      expect(l.theory.examples.length).toBeGreaterThan(0)
+    })
+  })
+
+  it('should have exercise with instructions and starterCode containing <style>', () => {
+    module4Lessons.forEach((l) => {
+      expect(l.exercise.instructions.length).toBeGreaterThan(0)
+      expect(l.exercise.starterCode).toContain('<style>')
+    })
+  })
+
+  it('should have exactly 3 hints per lesson', () => {
+    module4Lessons.forEach((l) => {
+      expect(l.exercise.hints).toHaveLength(3)
+    })
+  })
+
+  it('should have at least 3 tests per lesson', () => {
+    module4Lessons.forEach((l) => {
+      expect(l.exercise.tests.length).toBeGreaterThanOrEqual(3)
+    })
+  })
+
+  it('should have valid test assertions', () => {
+    const validAsserts = ['exists', 'hasText', 'hasAttribute', 'count', 'textContains']
+    module4Lessons.forEach((l) => {
+      l.exercise.tests.forEach((t) => {
+        expect(validAsserts).toContain(t.assert)
+        expect(t.name.length).toBeGreaterThan(0)
+        expect(t.query.length).toBeGreaterThan(0)
+      })
+    })
+  })
+
+  it('should verify style tag presence in tests', () => {
+    module4Lessons.forEach((l) => {
+      const hasStyleTest = l.exercise.tests.some((t) => t.query === 'style')
+      expect(hasStyleTest).toBe(true)
+    })
+  })
+
+  it('should have titles in French', () => {
+    module4Lessons.forEach((l) => {
+      expect(l.title.length).toBeGreaterThan(0)
+    })
+  })
+})
+
 describe('getLessonById', () => {
   it('should return lesson 1.1', () => {
     const lesson = getLessonById('1.1')
@@ -216,6 +286,12 @@ describe('getLessonById', () => {
     const lesson = getLessonById('3.1')
     expect(lesson).not.toBeNull()
     expect(lesson?.title).toContain('CSS')
+  })
+
+  it('should return lesson 4.1', () => {
+    const lesson = getLessonById('4.1')
+    expect(lesson).not.toBeNull()
+    expect(lesson?.title).toContain('Display')
   })
 
   it('should return null for unknown id', () => {
@@ -256,8 +332,20 @@ describe('getNextLessonId', () => {
     expect(getNextLessonId('3.4')).toBe('3.5')
   })
 
-  it('should return null after 3.5 (last lesson with content)', () => {
-    expect(getNextLessonId('3.5')).toBeNull()
+  it('should return 4.1 after 3.5 (cross-module 3→4)', () => {
+    expect(getNextLessonId('3.5')).toBe('4.1')
+  })
+
+  it('should return 4.2 after 4.1', () => {
+    expect(getNextLessonId('4.1')).toBe('4.2')
+  })
+
+  it('should return 4.5 after 4.4', () => {
+    expect(getNextLessonId('4.4')).toBe('4.5')
+  })
+
+  it('should return null after 4.5 (last lesson with content)', () => {
+    expect(getNextLessonId('4.5')).toBeNull()
   })
 
   it('should return null for unknown lesson', () => {
@@ -278,17 +366,22 @@ describe('getFirstLessonId', () => {
     expect(getFirstLessonId(3)).toBe('3.1')
   })
 
+  it('should return 4.1 for module 4', () => {
+    expect(getFirstLessonId(4)).toBe('4.1')
+  })
+
   it('should return null for module with no lessons', () => {
-    expect(getFirstLessonId(4)).toBeNull()
+    expect(getFirstLessonId(5)).toBeNull()
   })
 })
 
 describe('Cross-module navigation (full flow)', () => {
-  it('should navigate continuously from 1.1 to 3.5', () => {
+  it('should navigate continuously from 1.1 to 4.5', () => {
     const expectedSequence = [
       '1.1', '1.2', '1.3', '1.4', '1.5', '1.6',
       '2.1', '2.2', '2.3', '2.4',
       '3.1', '3.2', '3.3', '3.4', '3.5',
+      '4.1', '4.2', '4.3', '4.4', '4.5',
     ]
 
     let current = '1.1'
@@ -302,6 +395,6 @@ describe('Cross-module navigation (full flow)', () => {
     }
 
     expect(visited).toEqual(expectedSequence)
-    expect(visited).toHaveLength(15) // 6 + 4 + 5 = 15 lessons
+    expect(visited).toHaveLength(20) // 6 + 4 + 5 + 5 = 20 lessons
   })
 })

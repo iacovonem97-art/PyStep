@@ -248,16 +248,16 @@ describe('LessonPage Integration', () => {
     expect(screen.getByText(/leçon suivante/i)).toBeInTheDocument()
   })
 
-  // Last lesson with content (3.5)
+  // Last lesson with content (4.5)
   it('should show "Module terminé !" for last lesson with content', () => {
-    renderLesson('3.5')
+    renderLesson('4.5')
     const editor = screen.getByTestId('monaco-editor-mock')
 
-    // Lesson 3.5 needs header, main, footer, exactly 2 p, style, div
+    // Lesson 4.5 needs header, .layout, .main-content, .sidebar, footer, style
     act(() => {
       fireEvent.change(editor, {
         target: {
-          value: '<style>header{background:blue;}</style><header><h1>About</h1></header><main><p>Hello</p><p>World</p><div class="card">Card</div></main><footer>Copyright 2026</footer>',
+          value: '<style>header{background:#1e293b;}.layout{display:grid;}.main-content{padding:20px;}.sidebar{padding:20px;}footer{text-align:center;}</style><header><h1>Blog</h1></header><div class="layout"><div class="main-content"><p>Content</p></div><div class="sidebar"><p>Side</p></div></div><footer>Copyright</footer>',
         },
       })
     })

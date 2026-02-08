@@ -1,6 +1,6 @@
 # STORY-012: Contenu Module 4 - Mise en page CSS
 
-> **Status** : Pending
+> **Status** : Done
 > **Sprint** : 4
 > **Epic** : 2 - Parcours d'apprentissage
 > **PRD Reference** : Section 3 (Parcours pedagogique), US-2.2
@@ -21,44 +21,44 @@
 ## Acceptance Criteria
 
 ### AC-1: 5 lecons completes avec theorie + exercice + tests
-- [ ] Lecon 4.1 : Display et positionnement (`block`, `inline`, `relative`, `absolute`)
-- [ ] Lecon 4.2 : Flexbox - Les bases (`display: flex`, `justify-content`, `align-items`)
-- [ ] Lecon 4.3 : Flexbox - Avance (`flex-wrap`, `gap`, `order`, `flex-grow`)
-- [ ] Lecon 4.4 : Introduction a Grid (`display: grid`, colonnes, rangees, `gap`)
-- [ ] Lecon 4.5 : Responsive design (`media queries`, `mobile-first`) - Mini-projet : layout 2 colonnes responsive
+- [x]Lecon 4.1 : Display et positionnement (`block`, `inline`, `relative`, `absolute`)
+- [x]Lecon 4.2 : Flexbox - Les bases (`display: flex`, `justify-content`, `align-items`)
+- [x]Lecon 4.3 : Flexbox - Avance (`flex-wrap`, `gap`, `order`, `flex-grow`)
+- [x]Lecon 4.4 : Introduction a Grid (`display: grid`, colonnes, rangees, `gap`)
+- [x]Lecon 4.5 : Responsive design (`media queries`, `mobile-first`) - Mini-projet : layout 2 colonnes responsive
 
 ### AC-2: Format identique aux Modules 1-3
-- [ ] Chaque lecon suit le type `Lesson` (`id`, `title`, `module`, `order`, `theory`, `exercise`)
-- [ ] Theory : `content` (Markdown) + `examples` (CodeExample[])
-- [ ] Exercise : `instructions` + `starterCode` + `hints` (3 niveaux) + `tests` (ExerciseTest[])
-- [ ] Contenu en francais, ton pedagogique et encourageant
+- [x]Chaque lecon suit le type `Lesson` (`id`, `title`, `module`, `order`, `theory`, `exercise`)
+- [x]Theory : `content` (Markdown) + `examples` (CodeExample[])
+- [x]Exercise : `instructions` + `starterCode` + `hints` (3 niveaux) + `tests` (ExerciseTest[])
+- [x]Contenu en francais, ton pedagogique et encourageant
 
 ### AC-3: Exercices CSS dans un contexte HTML
-- [ ] Le starterCode inclut une structure HTML + une balise `<style>` a completer
-- [ ] Les exercices demandent d'ecrire du CSS dans `<style>` (pas de fichier CSS externe)
-- [ ] Le preview dans l'iframe affiche le resultat du layout en temps reel
-- [ ] Le contenu HTML de base est fourni avec des div/elements a positionner
+- [x]Le starterCode inclut une structure HTML + une balise `<style>` a completer
+- [x]Les exercices demandent d'ecrire du CSS dans `<style>` (pas de fichier CSS externe)
+- [x]Le preview dans l'iframe affiche le resultat du layout en temps reel
+- [x]Le contenu HTML de base est fourni avec des div/elements a positionner
 
 ### AC-4: Tests de validation adaptes au layout
-- [ ] Les tests DOM verifient la presence des elements structurants
-- [ ] Types d'assert : `exists` (elements), `hasAttribute` (class), `count`
-- [ ] Chaque exercice a 3 a 6 tests
-- [ ] Le validator existant est suffisant (pas besoin de tester les valeurs CSS computed)
+- [x]Les tests DOM verifient la presence des elements structurants
+- [x]Types d'assert : `exists` (elements), `hasAttribute` (class), `count`
+- [x]Chaque exercice a 3 a 6 tests
+- [x]Le validator existant est suffisant (pas besoin de tester les valeurs CSS computed)
 
 ### AC-5: Integration dans l'application
-- [ ] Fichier `src/data/lessons/module-4.ts` cree et exporte `module4Lessons`
-- [ ] `src/data/modules.ts` mis a jour : import module4Lessons, remplace `lessons: []`
-- [ ] Module 4 accessible depuis la Course Map apres completion du Module 3
-- [ ] Navigation "Lecon suivante" fonctionne de 4.1 → 4.2 → 4.3 → 4.4 → 4.5
-- [ ] Apres 3.5, enchaine sur 4.1 correctement
-- [ ] Apres 4.5, enchaine sur 5.1 (Module 5)
+- [x]Fichier `src/data/lessons/module-4.ts` cree et exporte `module4Lessons`
+- [x]`src/data/modules.ts` mis a jour : import module4Lessons, remplace `lessons: []`
+- [x]Module 4 accessible depuis la Course Map apres completion du Module 3
+- [x]Navigation "Lecon suivante" fonctionne de 4.1 → 4.2 → 4.3 → 4.4 → 4.5
+- [x]Apres 3.5, enchaine sur 4.1 correctement
+- [x]Apres 4.5, enchaine sur 5.1 (Module 5)
 
 ### AC-6: Progression pedagogique du layout
-- [ ] Lecon 4.1 introduit display/position depuis les bases (block vs inline)
-- [ ] Flexbox est decouvert progressivement sur 2 lecons (bases puis avance)
-- [ ] Grid est presente comme une alternative a Flexbox pour les layouts 2D
-- [ ] Le responsive design conclut logiquement le module (media queries)
-- [ ] Le mini-projet (4.5) combine Flexbox/Grid + media queries
+- [x]Lecon 4.1 introduit display/position depuis les bases (block vs inline)
+- [x]Flexbox est decouvert progressivement sur 2 lecons (bases puis avance)
+- [x]Grid est presente comme une alternative a Flexbox pour les layouts 2D
+- [x]Le responsive design conclut logiquement le module (media queries)
+- [x]Le mini-projet (4.5) combine Flexbox/Grid + media queries
 
 ---
 
@@ -342,48 +342,48 @@
 ## Technical Tasks
 
 ### T1: Creer module-4.ts
-- [ ] Creer `src/data/lessons/module-4.ts`
-- [ ] Export `module4Lessons: Lesson[]` avec 5 lecons
-- [ ] Chaque lecon respecte les interfaces Lesson, LessonTheory, LessonExercise
-- [ ] starterCode inclut du HTML de base + bloc `<style>` a completer
-- [ ] Contenu pedagogique detaille (Flexbox/Grid depuis zero)
+- [x]Creer `src/data/lessons/module-4.ts`
+- [x]Export `module4Lessons: Lesson[]` avec 5 lecons
+- [x]Chaque lecon respecte les interfaces Lesson, LessonTheory, LessonExercise
+- [x]starterCode inclut du HTML de base + bloc `<style>` a completer
+- [x]Contenu pedagogique detaille (Flexbox/Grid depuis zero)
 
 ### T2: Mettre a jour modules.ts
-- [ ] Import `module4Lessons` depuis `./lessons/module-4`
-- [ ] Remplacer `{ ...MODULES_META[3], lessons: [] }` par `{ ...MODULES_META[3], lessons: module4Lessons }`
-- [ ] Verifier que `getLessonById`, `getNextLessonId` fonctionnent avec Module 4
+- [x]Import `module4Lessons` depuis `./lessons/module-4`
+- [x]Remplacer `{ ...MODULES_META[3], lessons: [] }` par `{ ...MODULES_META[3], lessons: module4Lessons }`
+- [x]Verifier que `getLessonById`, `getNextLessonId` fonctionnent avec Module 4
 
 ### T3: Tests unitaires du contenu
-- [ ] Test: module4Lessons contient exactement 5 lecons
-- [ ] Test: chaque lecon a un id format "4.X"
-- [ ] Test: chaque lecon a theory.content non vide
-- [ ] Test: chaque lecon a au moins 1 example
-- [ ] Test: chaque lecon a exercise.instructions non vide
-- [ ] Test: chaque lecon a exercise.starterCode contenant `<style>`
-- [ ] Test: chaque lecon a exactement 3 hints
-- [ ] Test: chaque lecon a au moins 3 tests de validation
-- [ ] Test: tous les tests utilisent des assert valides
+- [x]Test: module4Lessons contient exactement 5 lecons
+- [x]Test: chaque lecon a un id format "4.X"
+- [x]Test: chaque lecon a theory.content non vide
+- [x]Test: chaque lecon a au moins 1 example
+- [x]Test: chaque lecon a exercise.instructions non vide
+- [x]Test: chaque lecon a exercise.starterCode contenant `<style>`
+- [x]Test: chaque lecon a exactement 3 hints
+- [x]Test: chaque lecon a au moins 3 tests de validation
+- [x]Test: tous les tests utilisent des assert valides
 
 ### T4: Tests d'integration
-- [ ] Test: Module 4 apparait dans la Course Map
-- [ ] Test: Module 4 verrouille si Module 3 non complete
-- [ ] Test: Module 4 debloque si Module 3 complete
-- [ ] Test: navigation 4.1 → 4.2 → 4.3 → 4.4 → 4.5 fonctionne
-- [ ] Test: getNextLessonId('3.5') retourne '4.1'
-- [ ] Test: getNextLessonId('4.5') retourne '5.1'
+- [x]Test: Module 4 apparait dans la Course Map
+- [x]Test: Module 4 verrouille si Module 3 non complete
+- [x]Test: Module 4 debloque si Module 3 complete
+- [x]Test: navigation 4.1 → 4.2 → 4.3 → 4.4 → 4.5 fonctionne
+- [x]Test: getNextLessonId('3.5') retourne '4.1'
+- [x]Test: getNextLessonId('4.5') retourne '5.1'
 
 ### T5: Tests de regression validator
-- [ ] Test: validator passe avec solution correcte pour chaque lecon 4.x
-- [ ] Test: validator echoue avec solution partielle
-- [ ] Test: validator gere le CSS Flexbox/Grid dans `<style>` sans erreur
+- [x]Test: validator passe avec solution correcte pour chaque lecon 4.x
+- [x]Test: validator echoue avec solution partielle
+- [x]Test: validator gere le CSS Flexbox/Grid dans `<style>` sans erreur
 
 ### T6: Validation manuelle
-- [ ] Ouvrir chaque lecon dans le navigateur
-- [ ] Verifier que la theorie est claire pour un debutant
-- [ ] Verifier que le starterCode apparait correctement dans Monaco
-- [ ] Verifier que le CSS layout s'affiche dans la preview
-- [ ] Verifier que la solution correcte passe tous les tests
-- [ ] Verifier que le responsive fonctionne dans la preview (resize)
+- [x]Ouvrir chaque lecon dans le navigateur
+- [x]Verifier que la theorie est claire pour un debutant
+- [x]Verifier que le starterCode apparait correctement dans Monaco
+- [x]Verifier que le CSS layout s'affiche dans la preview
+- [x]Verifier que la solution correcte passe tous les tests
+- [x]Verifier que le responsive fonctionne dans la preview (resize)
 
 ---
 
@@ -421,13 +421,13 @@
 
 ## Definition of Done
 
-- [ ] 5 lecons Module 4 completes (theory + exercise + tests)
-- [ ] Fichier module-4.ts cree et integre dans modules.ts
-- [ ] Module 4 accessible dans l'app apres completion Module 3
-- [ ] Navigation inter-lecons fonctionnelle (3.5 → 4.1 → ... → 4.5 → 5.1)
-- [ ] CSS layout visible dans la preview iframe
-- [ ] All tests passing (objectif : +25 tests)
-- [ ] Contenu verifie manuellement dans le navigateur
-- [ ] Code reviewed
-- [ ] Status mis a jour dans ce fichier
-- [ ] Commit : `feat(STORY-012): add Module 4 Mise en page CSS content`
+- [x]5 lecons Module 4 completes (theory + exercise + tests)
+- [x]Fichier module-4.ts cree et integre dans modules.ts
+- [x]Module 4 accessible dans l'app apres completion Module 3
+- [x]Navigation inter-lecons fonctionnelle (3.5 → 4.1 → ... → 4.5 → 5.1)
+- [x]CSS layout visible dans la preview iframe
+- [x]All tests passing (objectif : +25 tests)
+- [x]Contenu verifie manuellement dans le navigateur
+- [x]Code reviewed
+- [x]Status mis a jour dans ce fichier
+- [x]Commit : `feat(STORY-012): add Module 4 Mise en page CSS content`

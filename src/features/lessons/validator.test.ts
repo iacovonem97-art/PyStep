@@ -666,6 +666,233 @@ describe('Lesson regression tests', () => {
     })
   })
 
+  describe('Lesson 4.1 - Display et positionnement', () => {
+    const lesson41Tests: ExerciseTest[] = [
+      { name: 'Un conteneur .container est présent', query: '.container', assert: 'exists' },
+      { name: 'Un badge .badge est présent', query: '.badge', assert: 'exists' },
+      { name: 'Un <h2> est présent', query: 'h2', assert: 'exists' },
+      { name: 'Il y a 3 <span> (tags)', query: 'span', assert: 'count', value: 3 },
+      { name: 'Une balise <style> est présente', query: 'style', assert: 'exists' },
+    ]
+
+    it('should pass a valid solution with positioned badge and inline-block spans', () => {
+      const studentCode = `
+<style>
+  .container { position: relative; border: 2px solid #ccc; padding: 40px; height: 200px; }
+  .badge { position: absolute; top: 10px; right: 10px; background-color: #ef4444; color: white; padding: 4px 12px; border-radius: 12px; }
+  span { display: inline-block; padding: 8px 16px; margin: 4px; background-color: #dbeafe; border-radius: 4px; }
+</style>
+<div class="container">
+  <div class="badge">Promo</div>
+  <h2>Mon produit</h2>
+  <span>HTML</span>
+  <span>CSS</span>
+  <span>Web</span>
+</div>
+      `
+      const result = validateExercise(studentCode, lesson41Tests)
+      expect(result.passed).toBe(true)
+      expect(result.results).toHaveLength(5)
+    })
+
+    it('should fail when badge is missing', () => {
+      const studentCode = `
+<style>
+  .container { position: relative; border: 1px solid #ccc; padding: 20px; }
+</style>
+<div class="container">
+  <h2>Mon produit</h2>
+  <span>Tag1</span>
+  <span>Tag2</span>
+  <span>Tag3</span>
+</div>
+      `
+      const result = validateExercise(studentCode, lesson41Tests)
+      expect(result.passed).toBe(false)
+      expect(result.results[1].passed).toBe(false)
+    })
+  })
+
+  describe('Lesson 4.2 - Flexbox Les bases', () => {
+    const lesson42Tests: ExerciseTest[] = [
+      { name: 'Un <nav> est présent', query: 'nav', assert: 'exists' },
+      { name: 'La classe .navbar est utilisée', query: '.navbar', assert: 'exists' },
+      { name: 'Un logo .logo est présent', query: '.logo', assert: 'exists' },
+      { name: 'Il y a au moins 3 liens <a>', query: 'a', assert: 'count', value: 3 },
+      { name: 'Une balise <style> est présente', query: 'style', assert: 'exists' },
+    ]
+
+    it('should pass a valid flexbox navbar', () => {
+      const studentCode = `
+<style>
+  .navbar { display: flex; justify-content: space-between; align-items: center; background-color: #1e293b; color: white; padding: 12px 24px; }
+  .nav-links { display: flex; gap: 16px; }
+  .nav-links a { color: white; text-decoration: none; }
+</style>
+<nav class="navbar">
+  <div class="logo">MonSite</div>
+  <div class="nav-links">
+    <a href="#">Accueil</a>
+    <a href="#">À propos</a>
+    <a href="#">Contact</a>
+  </div>
+</nav>
+      `
+      const result = validateExercise(studentCode, lesson42Tests)
+      expect(result.passed).toBe(true)
+    })
+
+    it('should fail when links are missing', () => {
+      const studentCode = `
+<style>
+  .navbar { display: flex; }
+</style>
+<nav class="navbar">
+  <div class="logo">MonSite</div>
+</nav>
+      `
+      const result = validateExercise(studentCode, lesson42Tests)
+      expect(result.passed).toBe(false)
+      expect(result.results[3].passed).toBe(false)
+    })
+  })
+
+  describe('Lesson 4.3 - Flexbox Avancé', () => {
+    const lesson43Tests: ExerciseTest[] = [
+      { name: 'Un conteneur .card-grid est présent', query: '.card-grid', assert: 'exists' },
+      { name: 'Il y a 3 cartes .card', query: '.card', assert: 'count', value: 3 },
+      { name: 'Il y a 3 titres <h3>', query: 'h3', assert: 'count', value: 3 },
+      { name: 'Une balise <style> est présente', query: 'style', assert: 'exists' },
+    ]
+
+    it('should pass a valid flex-wrap card grid', () => {
+      const studentCode = `
+<style>
+  .card-grid { display: flex; flex-wrap: wrap; gap: 16px; }
+  .card { flex: 1 1 250px; border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; }
+</style>
+<div class="card-grid">
+  <div class="card"><h3>Carte 1</h3><p>Contenu.</p></div>
+  <div class="card"><h3>Carte 2</h3><p>Contenu.</p></div>
+  <div class="card"><h3>Carte 3</h3><p>Contenu.</p></div>
+</div>
+      `
+      const result = validateExercise(studentCode, lesson43Tests)
+      expect(result.passed).toBe(true)
+    })
+
+    it('should fail with only 2 cards', () => {
+      const studentCode = `
+<style>
+  .card-grid { display: flex; flex-wrap: wrap; }
+  .card { flex: 1 1 250px; }
+</style>
+<div class="card-grid">
+  <div class="card"><h3>Carte 1</h3><p>Contenu.</p></div>
+  <div class="card"><h3>Carte 2</h3><p>Contenu.</p></div>
+</div>
+      `
+      const result = validateExercise(studentCode, lesson43Tests)
+      expect(result.passed).toBe(false)
+      expect(result.results[1].passed).toBe(false)
+    })
+  })
+
+  describe('Lesson 4.4 - Introduction à Grid', () => {
+    const lesson44Tests: ExerciseTest[] = [
+      { name: 'Un conteneur .grid-layout est présent', query: '.grid-layout', assert: 'exists' },
+      { name: 'Il y a 4 éléments .grid-item', query: '.grid-item', assert: 'count', value: 4 },
+      { name: 'Un élément .featured est présent', query: '.featured', assert: 'exists' },
+      { name: 'Une balise <style> est présente', query: 'style', assert: 'exists' },
+    ]
+
+    it('should pass a valid CSS Grid gallery', () => {
+      const studentCode = `
+<style>
+  .grid-layout { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .grid-item { background-color: #dbeafe; padding: 20px; border-radius: 8px; text-align: center; }
+  .featured { grid-column: 1 / -1; background-color: #bfdbfe; }
+</style>
+<div class="grid-layout">
+  <div class="grid-item featured">Article en vedette</div>
+  <div class="grid-item">Article 1</div>
+  <div class="grid-item">Article 2</div>
+  <div class="grid-item">Article 3</div>
+</div>
+      `
+      const result = validateExercise(studentCode, lesson44Tests)
+      expect(result.passed).toBe(true)
+    })
+
+    it('should fail without featured element', () => {
+      const studentCode = `
+<style>
+  .grid-layout { display: grid; grid-template-columns: repeat(3, 1fr); }
+  .grid-item { padding: 20px; }
+</style>
+<div class="grid-layout">
+  <div class="grid-item">A1</div>
+  <div class="grid-item">A2</div>
+  <div class="grid-item">A3</div>
+  <div class="grid-item">A4</div>
+</div>
+      `
+      const result = validateExercise(studentCode, lesson44Tests)
+      expect(result.passed).toBe(false)
+      expect(result.results[2].passed).toBe(false)
+    })
+  })
+
+  describe('Lesson 4.5 - Responsive design', () => {
+    const lesson45Tests: ExerciseTest[] = [
+      { name: 'Un <header> est présent', query: 'header', assert: 'exists' },
+      { name: 'Un layout .layout est présent', query: '.layout', assert: 'exists' },
+      { name: 'Un contenu .main-content est présent', query: '.main-content', assert: 'exists' },
+      { name: 'Une sidebar .sidebar est présente', query: '.sidebar', assert: 'exists' },
+      { name: 'Un <footer> est présent', query: 'footer', assert: 'exists' },
+      { name: 'Une balise <style> est présente', query: 'style', assert: 'exists' },
+    ]
+
+    it('should pass a valid responsive blog layout', () => {
+      const studentCode = `
+<style>
+  header { background-color: #1e293b; color: white; padding: 16px 24px; }
+  .layout { display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 1000px; margin: 0 auto; padding: 20px; }
+  @media (min-width: 768px) { .layout { grid-template-columns: 2fr 1fr; } }
+  .main-content { background-color: #f0fdf4; padding: 20px; border-radius: 8px; }
+  .sidebar { background-color: #fef3c7; padding: 20px; border-radius: 8px; }
+  footer { text-align: center; padding: 16px; }
+</style>
+<header><h1>Mon Blog</h1></header>
+<div class="layout">
+  <div class="main-content"><h2>Bienvenue</h2><p>Contenu principal.</p></div>
+  <div class="sidebar"><h3>À propos</h3><p>Un blog web.</p></div>
+</div>
+<footer><p>&copy; 2026</p></footer>
+      `
+      const result = validateExercise(studentCode, lesson45Tests)
+      expect(result.passed).toBe(true)
+      expect(result.results).toHaveLength(6)
+    })
+
+    it('should fail when sidebar is missing', () => {
+      const studentCode = `
+<style>
+  .layout { display: grid; }
+  .main-content { padding: 20px; }
+</style>
+<header><h1>Blog</h1></header>
+<div class="layout">
+  <div class="main-content"><p>Contenu.</p></div>
+</div>
+<footer><p>Fin</p></footer>
+      `
+      const result = validateExercise(studentCode, lesson45Tests)
+      expect(result.passed).toBe(false)
+      expect(result.results[3].passed).toBe(false)
+    })
+  })
+
   describe('Edge cases from real usage', () => {
     it('should handle HTML with comments', () => {
       const code = `
