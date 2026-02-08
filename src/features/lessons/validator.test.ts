@@ -893,6 +893,120 @@ describe('Lesson regression tests', () => {
     })
   })
 
+  describe('Lesson 5.1 - Portfolio Structure HTML', () => {
+    const lesson51Tests: ExerciseTest[] = [
+      { name: 'Un <header> est présent', query: 'header', assert: 'exists' },
+      { name: 'Une <nav> est présente', query: 'nav', assert: 'exists' },
+      { name: 'Il y a au moins 3 liens de navigation', query: 'nav a', assert: 'count', value: 3 },
+      { name: 'Il y a au moins 3 sections', query: 'section', assert: 'count', value: 3 },
+      { name: 'Il y a au moins 2 articles (projets)', query: 'article', assert: 'count', value: 2 },
+      { name: 'Un formulaire est présent', query: 'form', assert: 'exists' },
+      { name: 'Un <footer> est présent', query: 'footer', assert: 'exists' },
+    ]
+
+    it('should pass a valid portfolio HTML structure', () => {
+      const studentCode = `
+<header>
+  <nav>
+    <a href="#accueil">Accueil</a>
+    <a href="#projets">Projets</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+<main>
+  <section id="accueil"><h1>Marie Martin</h1><p>Dev web junior.</p></section>
+  <section id="projets">
+    <h2>Mes projets</h2>
+    <article><h3>Projet 1</h3><p>Description.</p></article>
+    <article><h3>Projet 2</h3><p>Description.</p></article>
+  </section>
+  <section id="contact">
+    <h2>Contact</h2>
+    <form><input type="email"><button>Envoyer</button></form>
+  </section>
+</main>
+<footer><p>&copy; 2026</p></footer>
+      `
+      const result = validateExercise(studentCode, lesson51Tests)
+      expect(result.passed).toBe(true)
+      expect(result.results).toHaveLength(7)
+    })
+
+    it('should fail when articles are missing', () => {
+      const studentCode = `
+<header><nav><a href="#">A</a><a href="#">B</a><a href="#">C</a></nav></header>
+<main>
+  <section><h1>Nom</h1></section>
+  <section><h2>Projets</h2></section>
+  <section><form><input type="email"><button>OK</button></form></section>
+</main>
+<footer><p>Fin</p></footer>
+      `
+      const result = validateExercise(studentCode, lesson51Tests)
+      expect(result.passed).toBe(false)
+      expect(result.results[4].passed).toBe(false) // article count 0 !== 2
+    })
+  })
+
+  describe('Lesson 5.2 - Portfolio Style CSS', () => {
+    const lesson52Tests: ExerciseTest[] = [
+      { name: 'Un <header> est présent', query: 'header', assert: 'exists' },
+      { name: 'Une <nav> est présente', query: 'nav', assert: 'exists' },
+      { name: 'Il y a au moins 3 sections', query: 'section', assert: 'count', value: 3 },
+      { name: 'Il y a au moins 2 articles (projets)', query: 'article', assert: 'count', value: 2 },
+      { name: 'Un <footer> est présent', query: 'footer', assert: 'exists' },
+      { name: 'Une balise <style> est présente', query: 'style', assert: 'exists' },
+      { name: 'Un <div> est présent', query: 'div', assert: 'exists' },
+    ]
+
+    it('should pass a valid styled portfolio', () => {
+      const studentCode = `
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  header { background-color: #1e293b; color: white; padding: 16px; }
+  nav { display: flex; gap: 20px; }
+  nav a { color: white; text-decoration: none; }
+  section { padding: 40px 20px; max-width: 800px; margin: 0 auto; }
+  .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  article { border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px; }
+  @media (max-width: 640px) { .projects-grid { grid-template-columns: 1fr; } }
+  footer { background-color: #1e293b; color: white; text-align: center; padding: 16px; }
+</style>
+<header><nav><a href="#">A</a><a href="#">B</a><a href="#">C</a></nav></header>
+<main>
+  <section><h1>Portfolio</h1><p>Description.</p></section>
+  <section>
+    <h2>Projets</h2>
+    <div class="projects-grid">
+      <article><h3>P1</h3><p>Desc.</p></article>
+      <article><h3>P2</h3><p>Desc.</p></article>
+    </div>
+  </section>
+  <section><h2>Contact</h2><form><input type="email"><button>OK</button></form></section>
+</main>
+<footer><p>&copy; 2026</p></footer>
+      `
+      const result = validateExercise(studentCode, lesson52Tests)
+      expect(result.passed).toBe(true)
+      expect(result.results).toHaveLength(7)
+    })
+
+    it('should fail when style tag is missing', () => {
+      const studentCode = `
+<header><nav><a href="#">A</a><a href="#">B</a><a href="#">C</a></nav></header>
+<main>
+  <section><h1>Portfolio</h1></section>
+  <section><div><article><h3>P1</h3></article><article><h3>P2</h3></article></div></section>
+  <section><form><input type="email"></form></section>
+</main>
+<footer><p>Fin</p></footer>
+      `
+      const result = validateExercise(studentCode, lesson52Tests)
+      expect(result.passed).toBe(false)
+      expect(result.results[5].passed).toBe(false) // style missing
+    })
+  })
+
   describe('Edge cases from real usage', () => {
     it('should handle HTML with comments', () => {
       const code = `

@@ -248,16 +248,16 @@ describe('LessonPage Integration', () => {
     expect(screen.getByText(/leçon suivante/i)).toBeInTheDocument()
   })
 
-  // Last lesson with content (4.5)
+  // Last lesson of the course (5.2)
   it('should show "Module terminé !" for last lesson with content', () => {
-    renderLesson('4.5')
+    renderLesson('5.2')
     const editor = screen.getByTestId('monaco-editor-mock')
 
-    // Lesson 4.5 needs header, .layout, .main-content, .sidebar, footer, style
+    // Lesson 5.2 needs header, nav, 3 sections, 2 articles, footer, style, div
     act(() => {
       fireEvent.change(editor, {
         target: {
-          value: '<style>header{background:#1e293b;}.layout{display:grid;}.main-content{padding:20px;}.sidebar{padding:20px;}footer{text-align:center;}</style><header><h1>Blog</h1></header><div class="layout"><div class="main-content"><p>Content</p></div><div class="sidebar"><p>Side</p></div></div><footer>Copyright</footer>',
+          value: '<style>header{background:#1e293b;}nav{display:flex;}section{padding:20px;}footer{text-align:center;}</style><header><nav><a href="#">A</a><a href="#">B</a><a href="#">C</a></nav></header><main><section><h1>Portfolio</h1></section><section><div class="projects-grid"><article><h3>P1</h3><p>D</p></article><article><h3>P2</h3><p>D</p></article></div></section><section><form><input type="email"><button>OK</button></form></section></main><footer><p>Copyright</p></footer>',
         },
       })
     })
