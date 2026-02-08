@@ -2,8 +2,8 @@
 
 > **Date** : 8 fevrier 2026
 > **Facilitateur** : Bob (Scrum Master)
-> **Format** : Start / Stop / Continue + Metriques
-> **Sprint Goal** : Lancement MVP production-ready (22/22 lecons + SEO + E2E)
+> **Format** : Commencer / Arreter / Continuer + Metriques
+> **Objectif Sprint** : Lancement MVP production-ready (22/22 lecons + SEO + E2E)
 
 ---
 
@@ -53,7 +53,7 @@ Velocite moyenne : **20 points/sprint** (stable sur 4 sprints consecutifs). Zero
 
 ---
 
-## What Went Well (Continue)
+## Ce qui a bien fonctionne (Continuer)
 
 ### 1. MVP COMPLET : 22/22 lecons livrees
 C'est le milestone majeur du projet. Pystep a maintenant un parcours complet de "zero" a "portfolio" :
@@ -78,29 +78,29 @@ Navigation fluide de la lecon 1.1 jusqu'a la 5.2.
 | `60d9a33` | STORY-015 | `feat(STORY-015): setup Playwright E2E and smoke tests` |
 | `257d9f0` | Docs | `docs(sprint-4): update backlog with Sprint 4 completion status` |
 
-Pattern installe. C'est desormais un acquis.
+Habitude installee. C'est desormais un acquis.
 
 ### 4. AMELIORATION : Statuts stories mis a jour
 Les 4 stories sont a `Status: Done` avec les AC/DoD cochees dans les fichiers .md. C'est la **premiere fois en 4 sprints** que les statuts sont a jour sans intervention post-retro.
 
 L'action corrective des Sprints 1, 2 et 3 est **enfin appliquee**.
 
-### 5. E2E testing : nouvelle couche qualite
+### 5. Tests E2E : nouvelle couche qualite
 Playwright E2E ajoute une couche de confiance significative :
 - 11 smoke tests couvrant : home, auth, 404, routes protegees
 - Bug reel decouvert : `AuthProvider` manquant dans `App.tsx` (corrige immediatement)
-- Infrastructure E2E prete pour les futurs sprints
+- Infrastructure E2E en place pour les futurs sprints
 
-### 6. SEO production-ready
+### 6. SEO pret pour la production
 - Meta tags OG + Twitter Card
 - robots.txt + sitemap.xml
 - Plausible Analytics (CDN, adblocker-friendly)
 - Page 404 dediee
-- Structured data-ready
+- Pret pour les donnees structurees
 
 ---
 
-## What Didn't Go Well (Stop)
+## Ce qui n'a pas fonctionne (Arreter)
 
 ### 1. ALERTE : Duree test suite en forte hausse (+105%)
 | Sprint | Duree | Delta |
@@ -127,12 +127,12 @@ Le seuil de 10s est depasse. La suite de tests a double en duree. Avec la projec
 
 **Risque** : Vercel preview n'est pas a jour. Pas de backup distant du code.
 
-### 3. Items backlog non completes
-Deux items "Must Have" restent non coches dans le backlog :
+### 3. Items du backlog non completes
+Deux items "Indispensable" restent non coches dans le backlog :
 - [ ] Responsive desktop + mobile
 - [ ] Deploy production sur Vercel
 
-Et deux "Should Have" :
+Et deux "Souhaitable" :
 - [ ] Lighthouse Performance score > 90
 - [ ] Lighthouse SEO score > 90
 
@@ -151,9 +151,9 @@ Tendance preoccupante si on ajoute du contenu futur (Module 6+).
 
 ---
 
-## What to Start
+## A commencer
 
-### 1. Optimiser la duree de la test suite
+### 1. Optimiser la duree de la suite de tests
 15.51s est inacceptable pour un workflow TDD rapide. Actions :
 - Configurer `vitest --pool=threads` ou `--pool=forks` pour paralleliser
 - Investiguer le temps `environment` (155.61s cumule) : possiblement trop de re-creations jsdom
@@ -167,16 +167,16 @@ Deux items MVP bloquants restent :
 - Test responsive sur les breakpoints cles (mobile 375px, tablet 768px, desktop 1280px)
 - Deploy production Vercel + verification
 
-### 4. Definir la roadmap post-MVP
+### 4. Definir la feuille de route post-MVP
 Le MVP est techniquement complet (22/22 lecons). Prochaines decisions :
 - Module 6 (JavaScript) : quand ?
-- Gamification (badges, streaks) : priorite ?
+- Gamification (badges, series) : priorite ?
 - Certificat de completion : priorite ?
-- Growth (SEO content, social) : priorite ?
+- Croissance (contenu SEO, reseaux sociaux) : priorite ?
 
 ---
 
-## Comparaison Sprint-over-Sprint
+## Comparaison Sprint par Sprint
 
 | Metrique | Sprint 1 | Sprint 2 | Sprint 3 | Sprint 4 | Tendance |
 |----------|----------|----------|----------|----------|----------|
@@ -186,7 +186,7 @@ Le MVP est techniquement complet (22/22 lecons). Prochaines decisions :
 | Tests/point | 10.6 | 7.2 | 3.65 | 2.9 | En baisse |
 | Commits atomiques | NON | NON | OUI | OUI | ACQUIS |
 | Statuts mis a jour | NON | NON | NON | **OUI** | ACQUIS |
-| Push apres commit | -- | NON | NON | NON | A RESOUDRE |
+| Push apres commit | -- | NON | NON | NON | A CORRIGER |
 | Fichiers modifies | 33 | 44 | 19 | 25 | Stable |
 | Lecons cumul | 0 | 6 | 15 | **22 (MVP)** | COMPLET |
 
@@ -194,7 +194,7 @@ Le MVP est techniquement complet (22/22 lecons). Prochaines decisions :
 
 ## Bilan du Projet MVP (Sprints 1-4)
 
-### Delivery
+### Livraison
 
 | Element | Resultat |
 |---------|----------|
@@ -208,30 +208,30 @@ Le MVP est techniquement complet (22/22 lecons). Prochaines decisions :
 
 ### Architecture
 
-| Composant | Status |
+| Composant | Statut |
 |-----------|--------|
-| Auth (Supabase) | Done |
-| Landing Page | Done |
-| Code Editor (Monaco) | Done |
-| Exercise Validator | Done |
-| Progress Persistence | Done |
-| Cross-module Navigation | Done |
-| SEO + Analytics | Done |
-| E2E Testing | Done |
-| 404 Page | Done |
+| Auth (Supabase) | Fait |
+| Landing Page | Fait |
+| Code Editor (Monaco) | Fait |
+| Validateur d'exercices | Fait |
+| Persistence progression | Fait |
+| Navigation cross-module | Fait |
+| SEO + Analytics | Fait |
+| Tests E2E | Fait |
+| Page 404 | Fait |
 
 ### Ce qui reste pour le lancement
 
 | Item | Priorite | Effort estime |
 |------|----------|---------------|
-| Responsive testing + fixes | P0 | 3-5 pts |
+| Tests responsive + corrections | P0 | 3-5 pts |
 | Deploy production Vercel | P0 | 1 pt |
-| Lighthouse audit + fixes | P1 | 2-3 pts |
-| Push all commits to remote | P0 | 0 pt (immediat) |
+| Audit Lighthouse + corrections | P1 | 2-3 pts |
+| Pusher tous les commits | P0 | 0 pt (immediat) |
 
 ---
 
-## Resume
+## Synthese
 
 > **Sprint 4 : SUCCES.** 20/20 points, 487 tests, 0 bugs, 22/22 lecons.
 > Le MVP de Pystep est **fonctionnellement complet**. Le parcours de "zero a portfolio" est jouable de bout en bout.
@@ -245,4 +245,4 @@ Le MVP est techniquement complet (22/22 lecons). Prochaines decisions :
 > - 12 commits non pushes : risque persistant
 > - Responsive + deploy restent a faire pour le lancement effectif
 >
-> **VERDICT GLOBAL MVP** : 80/80 points livres en 4 sprints, 487 tests, 0 bugs, 22 lecons. L'execution est excellente. Le produit est pret fonctionnellement. Il reste le "last mile" operationnel (responsive, deploy, push).
+> **VERDICT GLOBAL MVP** : 80/80 points livres en 4 sprints, 487 tests, 0 bugs, 22 lecons. L'execution est excellente. Le produit est pret fonctionnellement. Il reste le dernier kilometre operationnel (responsive, deploy, push).
