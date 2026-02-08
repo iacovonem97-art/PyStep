@@ -99,14 +99,14 @@ STORY-015 (Playwright E2E)             4 pts
 
 ### Must Have (bloquant pour validation sprint et lancement MVP)
 
-- [ ] Module 4 : 5 lecons CSS avance jouables de bout en bout
-- [ ] Module 5 : 2 lecons Projet Final jouables de bout en bout
-- [ ] Navigation 3.5 → 4.1 → ... → 4.5 → 5.1 → 5.2 fluide
-- [ ] 22/22 lecons totales = parcours complet
-- [ ] Meta tags (title, description, OG) sur toutes les pages
-- [ ] Sitemap.xml genere
-- [ ] Analytics fonctionnel (tracking page views)
-- [ ] 100% tests passing (unitaires + E2E smoke)
+- [x] Module 4 : 5 lecons CSS avance jouables de bout en bout
+- [x] Module 5 : 2 lecons Projet Final jouables de bout en bout
+- [x] Navigation 3.5 → 4.1 → ... → 4.5 → 5.1 → 5.2 fluide
+- [x] 22/22 lecons totales = parcours complet
+- [x] Meta tags (title, description, OG) sur toutes les pages
+- [x] Sitemap.xml genere
+- [x] Analytics fonctionnel (tracking page views)
+- [x] 100% tests passing (unitaires + E2E smoke)
 - [ ] Responsive desktop + mobile
 - [ ] Deploy production sur Vercel
 
@@ -114,23 +114,23 @@ STORY-015 (Playwright E2E)             4 pts
 
 - [ ] Lighthouse Performance score > 90
 - [ ] Lighthouse SEO score > 90
-- [ ] Smoke test E2E : login → parcours → validation → progression
-- [ ] robots.txt configure
-- [ ] Error pages (404)
+- [x] Smoke test E2E : login → parcours → validation → progression
+- [x] robots.txt configure
+- [x] Error pages (404)
 
 ---
 
 ## Definition of Done (Sprint Level)
 
-- [ ] Toutes les stories a "Done"
-- [ ] Tests passing (objectif : +60 tests, total ~489)
-- [ ] E2E smoke test passing
+- [x] Toutes les stories a "Done"
+- [x] Tests passing (objectif : +60 tests, total ~489) → 476 unit + 11 E2E = 487 total
+- [x] E2E smoke test passing
 - [ ] Responsive sur mobile/tablet/desktop
-- [ ] Code reviewed
+- [x] Code reviewed
 - [ ] Deploye sur Vercel **production**
-- [ ] Documentation mise a jour
-- [ ] Commits atomiques par story
-- [ ] MEMORY.md mis a jour avec metriques finales
+- [x] Documentation mise a jour
+- [x] Commits atomiques par story
+- [x] MEMORY.md mis a jour avec metriques finales
 
 ---
 
