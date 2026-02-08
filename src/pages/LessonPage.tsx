@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { useParams, Navigate } from 'react-router-dom'
 import { getLessonById, getNextLessonId } from '../data/modules'
+import { useAuthContext } from '../contexts/AuthContext'
 import { useProgress } from '../features/progress/useProgress'
 import { useExercise } from '../features/lessons/useExercise'
 import { LessonHeader } from '../components/lesson/LessonHeader'
@@ -16,15 +17,20 @@ type Tab = 'theory' | 'code'
 
 export default function LessonPage() {
   const { id } = useParams<{ id: string }>()
+  const { user } = useAuthContext()
   const lesson = id ? getLessonById(id) : null
-  const progress = useProgress()
+  const progress = useProgress(user?.id)
+
+  // Load draft code if available, otherwise use starterCode
+  const draftCode = lesson ? progress.getDraftCode(lesson.id) : null
+  const initialCode = draftCode ?? lesson?.exercise.starterCode ?? ''
 
   const exercise = useExercise(lesson?.exercise ?? {
     instructions: '',
     starterCode: '',
     hints: [],
     tests: [],
-  })
+  }, initialCode)
 
   const [activeTab, setActiveTab] = useState<Tab>('theory')
   const [showFeedback, setShowFeedback] = useState(false)
@@ -36,8 +42,22 @@ export default function LessonPage() {
 
   const nextLessonId = getNextLessonId(lesson.id)
 
+  // Save draft on code change
+  const handleCodeChange = useCallback(
+    (newCode: string) => {
+      exercise.setCode(newCode)
+      if (lesson) {
+        progress.saveDraft(lesson.id, newCode)
+      }
+    },
+    [exercise, lesson, progress]
+  )
+
   const handleValidate = () => {
     exercise.validate()
+    if (lesson) {
+      progress.trackAttempt(lesson.id)
+    }
     // Show feedback after validation completes
     setTimeout(() => setShowFeedback(true), 400)
   }
@@ -129,7 +149,7 @@ export default function LessonPage() {
           </div>
           <div className="flex flex-col h-full">
             <div className="flex-1 min-h-0">
-              <CodeEditor value={exercise.code} onChange={exercise.setCode} />
+              <CodeEditor value={exercise.code} onChange={handleCodeChange} />
             </div>
             <div className="h-[40%] border-t border-gray-200">
               <PreviewPanel code={exercise.code} />
@@ -146,7 +166,7 @@ export default function LessonPage() {
           ) : (
             <div className="h-full flex flex-col">
               <div className="flex-1 min-h-0">
-                <CodeEditor value={exercise.code} onChange={exercise.setCode} />
+                <CodeEditor value={exercise.code} onChange={handleCodeChange} />
               </div>
               <div className="h-[40%] border-t border-gray-200">
                 <PreviewPanel code={exercise.code} />

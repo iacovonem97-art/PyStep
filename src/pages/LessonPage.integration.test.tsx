@@ -224,8 +224,8 @@ describe('LessonPage Integration', () => {
     expect(screen.getByText('Indice 1')).toBeInTheDocument()
   })
 
-  // Last lesson of module
-  it('should show "Module terminé !" for last lesson on success', () => {
+  // Cross-module navigation: 1.6 now has a next lesson (2.1)
+  it('should show "Leçon suivante" after 1.6 success (Module 2 exists)', () => {
     renderLesson('1.6')
     const editor = screen.getByTestId('monaco-editor-mock')
 
@@ -233,6 +233,32 @@ describe('LessonPage Integration', () => {
     act(() => {
       fireEvent.change(editor, {
         target: { value: '<img src="photo.jpg" alt="Une photo">' },
+      })
+    })
+
+    act(() => {
+      fireEvent.click(screen.getByText(/vérifier mon code/i))
+    })
+
+    act(() => {
+      vi.advanceTimersByTime(500)
+    })
+
+    expect(screen.getByText('Bravo !')).toBeInTheDocument()
+    expect(screen.getByText(/leçon suivante/i)).toBeInTheDocument()
+  })
+
+  // Last lesson with content (3.5)
+  it('should show "Module terminé !" for last lesson with content', () => {
+    renderLesson('3.5')
+    const editor = screen.getByTestId('monaco-editor-mock')
+
+    // Lesson 3.5 needs header, main, footer, exactly 2 p, style, div
+    act(() => {
+      fireEvent.change(editor, {
+        target: {
+          value: '<style>header{background:blue;}</style><header><h1>About</h1></header><main><p>Hello</p><p>World</p><div class="card">Card</div></main><footer>Copyright 2026</footer>',
+        },
       })
     })
 

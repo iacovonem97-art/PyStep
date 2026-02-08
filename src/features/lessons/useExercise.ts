@@ -17,8 +17,8 @@ interface UseExerciseReturn {
   codeChanged: boolean
 }
 
-export function useExercise(exercise: LessonExercise): UseExerciseReturn {
-  const [code, setCode] = useState(exercise.starterCode)
+export function useExercise(exercise: LessonExercise, initialCode?: string): UseExerciseReturn {
+  const [code, setCode] = useState(initialCode ?? exercise.starterCode)
   const [validationResult, setValidationResult] = useState<ValidationResult | null>(null)
   const [isValidating, setIsValidating] = useState(false)
   const [hintLevel, setHintLevel] = useState(0)

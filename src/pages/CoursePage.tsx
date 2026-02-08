@@ -6,11 +6,13 @@ import { ProgressBar } from '../components/ui/ProgressBar'
 import { ModuleAccordion } from '../components/course/ModuleAccordion'
 import { LessonListItem } from '../components/course/LessonListItem'
 import { MODULES } from '../data/modules'
+import { useAuthContext } from '../contexts/AuthContext'
 import { useProgress } from '../features/progress/useProgress'
 import { TOTAL_LESSONS } from '../lib/constants'
 
 export default function CoursePage() {
-  const progress = useProgress()
+  const { user } = useAuthContext()
+  const progress = useProgress(user?.id)
   const currentLessonId = progress.getCurrentLessonId()
 
   // Expand module containing current lesson by default
