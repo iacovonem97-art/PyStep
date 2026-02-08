@@ -1,6 +1,6 @@
 # STORY-011: Contenu Module 3 - Introduction au CSS
 
-> **Status** : Ready for Development
+> **Status** : Done
 > **Sprint** : 3
 > **Epic** : 2 - Parcours d'apprentissage
 > **PRD Reference** : Section 3 (Parcours pedagogique), US-2.2
@@ -21,43 +21,43 @@
 ## Acceptance Criteria
 
 ### AC-1: 5 lecons completes avec theorie + exercice + tests
-- [ ] Lecon 3.1 : Qu'est-ce que le CSS ? (syntaxe, selecteurs basiques)
-- [ ] Lecon 3.2 : Couleurs et arriere-plans (`color`, `background`)
-- [ ] Lecon 3.3 : Typographie (`font-family`, `font-size`, `font-weight`)
-- [ ] Lecon 3.4 : Le modele de boite (`margin`, `padding`, `border`)
-- [ ] Lecon 3.5 : Dimensions et unites (px, %, em, rem) - Mini-projet : styliser la page "A propos"
+- [x] Lecon 3.1 : Qu'est-ce que le CSS ? (syntaxe, selecteurs basiques)
+- [x] Lecon 3.2 : Couleurs et arriere-plans (`color`, `background`)
+- [x] Lecon 3.3 : Typographie (`font-family`, `font-size`, `font-weight`)
+- [x] Lecon 3.4 : Le modele de boite (`margin`, `padding`, `border`)
+- [x] Lecon 3.5 : Dimensions et unites (px, %, em, rem) - Mini-projet : styliser la page "A propos"
 
 ### AC-2: Format identique aux Modules 1 et 2
-- [ ] Chaque lecon suit le type `Lesson` (`id`, `title`, `module`, `order`, `theory`, `exercise`)
-- [ ] Theory : `content` (Markdown) + `examples` (CodeExample[])
-- [ ] Exercise : `instructions` + `starterCode` + `hints` (3 niveaux) + `tests` (ExerciseTest[])
-- [ ] Contenu en francais, ton pedagogique et encourageant
+- [x] Chaque lecon suit le type `Lesson` (`id`, `title`, `module`, `order`, `theory`, `exercise`)
+- [x] Theory : `content` (Markdown) + `examples` (CodeExample[])
+- [x] Exercise : `instructions` + `starterCode` + `hints` (3 niveaux) + `tests` (ExerciseTest[])
+- [x] Contenu en francais, ton pedagogique et encourageant
 
 ### AC-3: Exercices CSS dans un contexte HTML
-- [ ] Le starterCode inclut une structure HTML + une balise `<style>` a remplir
-- [ ] Les exercices demandent d'ecrire du CSS dans `<style>` (pas de fichier CSS externe)
-- [ ] Le preview dans l'iframe affiche le resultat CSS en temps reel
-- [ ] Le contenu HTML de base est fourni, l'apprenant ajoute le CSS
+- [x] Le starterCode inclut une structure HTML + une balise `<style>` a remplir
+- [x] Les exercices demandent d'ecrire du CSS dans `<style>` (pas de fichier CSS externe)
+- [x] Le preview dans l'iframe affiche le resultat CSS en temps reel
+- [x] Le contenu HTML de base est fourni, l'apprenant ajoute le CSS
 
 ### AC-4: Tests de validation CSS adaptes
-- [ ] Les tests DOM verifient le rendu CSS via `getComputedStyle` ou attributs de style
-- [ ] Types d'assert supportes : `exists` (element cible), `hasAttribute` (style inline si besoin), `hasText`
-- [ ] Les tests valident le resultat visible, pas le code exact
-- [ ] Chaque exercice a 2 a 5 tests
-- [ ] ATTENTION : le validator existant fonctionne sur le DOM de l'iframe, le CSS dans `<style>` est applique automatiquement
+- [x] Les tests DOM verifient le rendu CSS via `getComputedStyle` ou attributs de style
+- [x] Types d'assert supportes : `exists` (element cible), `hasAttribute` (style inline si besoin), `hasText`
+- [x] Les tests valident le resultat visible, pas le code exact
+- [x] Chaque exercice a 2 a 5 tests
+- [x] ATTENTION : le validator existant fonctionne sur le DOM de l'iframe, le CSS dans `<style>` est applique automatiquement
 
 ### AC-5: Integration dans l'application
-- [ ] Fichier `src/data/lessons/module-3.ts` cree et exporte `module3Lessons`
-- [ ] `src/data/modules.ts` mis a jour : import module3Lessons, remplace `lessons: []`
-- [ ] Module 3 accessible depuis la Course Map apres completion du Module 2
-- [ ] Navigation "Lecon suivante" fonctionne de 3.1 → 3.2 → 3.3 → 3.4 → 3.5
-- [ ] Apres 2.4, enchaine sur 3.1 correctement
+- [x] Fichier `src/data/lessons/module-3.ts` cree et exporte `module3Lessons`
+- [x] `src/data/modules.ts` mis a jour : import module3Lessons, remplace `lessons: []`
+- [x] Module 3 accessible depuis la Course Map apres completion du Module 2
+- [x] Navigation "Lecon suivante" fonctionne de 3.1 → 3.2 → 3.3 → 3.4 → 3.5
+- [x] Apres 2.4, enchaine sur 3.1 correctement
 
 ### AC-6: Progression pedagogique vers le CSS
-- [ ] Lecon 3.1 introduit le concept CSS depuis zero (l'apprenant n'a vu que du HTML)
-- [ ] La transition HTML → CSS est explicite et motivante
-- [ ] Chaque lecon montre un "avant/apres" visuel (HTML brut vs HTML + CSS)
-- [ ] Le mini-projet (3.5) combine toutes les proprietes CSS vues
+- [x] Lecon 3.1 introduit le concept CSS depuis zero (l'apprenant n'a vu que du HTML)
+- [x] La transition HTML → CSS est explicite et motivante
+- [x] Chaque lecon montre un "avant/apres" visuel (HTML brut vs HTML + CSS)
+- [x] Le mini-projet (3.5) combine toutes les proprietes CSS vues
 
 ---
 
@@ -259,50 +259,50 @@ Note : On ne peut pas tester `color: red` avec les assert existants. On verifie 
 ## Technical Tasks
 
 ### T1: Creer module-3.ts
-- [ ] Creer `src/data/lessons/module-3.ts`
-- [ ] Export `module3Lessons: Lesson[]` avec 5 lecons
-- [ ] Chaque lecon respecte les interfaces Lesson, LessonTheory, LessonExercise
-- [ ] starterCode inclut du HTML de base + bloc `<style>` a completer
-- [ ] Contenu pedagogique detaille (theorie CSS depuis zero)
+- [x] Creer `src/data/lessons/module-3.ts`
+- [x] Export `module3Lessons: Lesson[]` avec 5 lecons
+- [x] Chaque lecon respecte les interfaces Lesson, LessonTheory, LessonExercise
+- [x] starterCode inclut du HTML de base + bloc `<style>` a completer
+- [x] Contenu pedagogique detaille (theorie CSS depuis zero)
 
 ### T2: Mettre a jour modules.ts
-- [ ] Import `module3Lessons` depuis `./lessons/module-3`
-- [ ] Remplacer `{ ...MODULES_META[2], lessons: [] }` par `{ ...MODULES_META[2], lessons: module3Lessons }`
-- [ ] Verifier que `getLessonById`, `getNextLessonId` fonctionnent avec Module 3
+- [x] Import `module3Lessons` depuis `./lessons/module-3`
+- [x] Remplacer `{ ...MODULES_META[2], lessons: [] }` par `{ ...MODULES_META[2], lessons: module3Lessons }`
+- [x] Verifier que `getLessonById`, `getNextLessonId` fonctionnent avec Module 3
 
 ### T3: Tests unitaires du contenu
-- [ ] Test: module3Lessons contient exactement 5 lecons
-- [ ] Test: chaque lecon a un id format "3.X"
-- [ ] Test: chaque lecon a theory.content non vide
-- [ ] Test: chaque lecon a au moins 1 example
-- [ ] Test: chaque lecon a exercise.instructions non vide
-- [ ] Test: chaque lecon a exercise.starterCode contenant `<style>`
-- [ ] Test: chaque lecon a exactement 3 hints
-- [ ] Test: chaque lecon a au moins 2 tests de validation
-- [ ] Test: tous les tests utilisent des assert valides
+- [x] Test: module3Lessons contient exactement 5 lecons
+- [x] Test: chaque lecon a un id format "3.X"
+- [x] Test: chaque lecon a theory.content non vide
+- [x] Test: chaque lecon a au moins 1 example
+- [x] Test: chaque lecon a exercise.instructions non vide
+- [x] Test: chaque lecon a exercise.starterCode contenant `<style>`
+- [x] Test: chaque lecon a exactement 3 hints
+- [x] Test: chaque lecon a au moins 2 tests de validation
+- [x] Test: tous les tests utilisent des assert valides
 
 ### T4: Tests d'integration
-- [ ] Test: Module 3 apparait dans la Course Map
-- [ ] Test: Module 3 verrouille si Module 2 non complete
-- [ ] Test: Module 3 debloque si Module 2 complete
-- [ ] Test: navigation 3.1 → 3.2 → 3.3 → 3.4 → 3.5 fonctionne
-- [ ] Test: getNextLessonId('2.4') retourne '3.1'
-- [ ] Test: getNextLessonId('3.5') retourne '4.1' (ou null si Module 4 vide)
-- [ ] Test: lecon CSS s'affiche correctement dans le preview iframe
+- [x] Test: Module 3 apparait dans la Course Map
+- [x] Test: Module 3 verrouille si Module 2 non complete
+- [x] Test: Module 3 debloque si Module 2 complete
+- [x] Test: navigation 3.1 → 3.2 → 3.3 → 3.4 → 3.5 fonctionne
+- [x] Test: getNextLessonId('2.4') retourne '3.1'
+- [x] Test: getNextLessonId('3.5') retourne '4.1' (ou null si Module 4 vide)
+- [x] Test: lecon CSS s'affiche correctement dans le preview iframe
 
 ### T5: Verifier la compatibilite avec le validator
-- [ ] Les tests DOM fonctionnent avec du CSS applique via `<style>`
-- [ ] Le validator peut trouver les elements meme quand du CSS est present
-- [ ] Le preview iframe applique correctement les styles CSS
-- [ ] Si besoin, documenter les limitations du validator pour les proprietes CSS
+- [x] Les tests DOM fonctionnent avec du CSS applique via `<style>`
+- [x] Le validator peut trouver les elements meme quand du CSS est present
+- [x] Le preview iframe applique correctement les styles CSS
+- [x] Si besoin, documenter les limitations du validator pour les proprietes CSS
 
 ### T6: Validation manuelle
-- [ ] Ouvrir chaque lecon dans le navigateur
-- [ ] Verifier que la theorie CSS est claire pour un debutant
-- [ ] Verifier que le starterCode apparait correctement dans Monaco
-- [ ] Verifier que le CSS s'affiche dans la preview en temps reel
-- [ ] Verifier que la solution correcte passe tous les tests
-- [ ] Verifier le "wow moment" visuel (HTML brut → HTML + CSS)
+- [x] Ouvrir chaque lecon dans le navigateur
+- [x] Verifier que la theorie CSS est claire pour un debutant
+- [x] Verifier que le starterCode apparait correctement dans Monaco
+- [x] Verifier que le CSS s'affiche dans la preview en temps reel
+- [x] Verifier que la solution correcte passe tous les tests
+- [x] Verifier le "wow moment" visuel (HTML brut → HTML + CSS)
 
 ---
 
@@ -341,12 +341,12 @@ Note : On ne peut pas tester `color: red` avec les assert existants. On verifie 
 
 ## Definition of Done
 
-- [ ] 5 lecons Module 3 completes (theory + exercise + tests)
-- [ ] Fichier module-3.ts cree et integre dans modules.ts
-- [ ] Module 3 accessible dans l'app apres completion Module 2
-- [ ] Navigation inter-lecons fonctionnelle (2.4 → 3.1 → ... → 3.5)
-- [ ] CSS visible dans la preview iframe
-- [ ] All tests passing (objectif : +25 tests)
-- [ ] Contenu verifie manuellement dans le navigateur
-- [ ] Code reviewed
-- [ ] Commit : `feat(STORY-011): add Module 3 Introduction au CSS content`
+- [x] 5 lecons Module 3 completes (theory + exercise + tests)
+- [x] Fichier module-3.ts cree et integre dans modules.ts
+- [x] Module 3 accessible dans l'app apres completion Module 2
+- [x] Navigation inter-lecons fonctionnelle (2.4 → 3.1 → ... → 3.5)
+- [x] CSS visible dans la preview iframe
+- [x] All tests passing (objectif : +25 tests)
+- [x] Contenu verifie manuellement dans le navigateur
+- [x] Code reviewed
+- [x] Commit : `feat(STORY-011): add Module 3 Introduction au CSS content`

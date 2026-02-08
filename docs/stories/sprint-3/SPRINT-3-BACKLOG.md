@@ -96,33 +96,33 @@ STORY-011 (Module 3 Content)           7 pts
 
 ### Must Have (bloquant pour validation sprint)
 
-- [ ] Progression sauvegardee dans Supabase apres chaque lecon validee
-- [ ] Brouillon de code sauvegarde et restaure entre sessions
-- [ ] Reprise automatique a la derniere lecon non terminee
-- [ ] Module 2 : 4 lecons HTML semantique jouables de bout en bout
-- [ ] Module 3 : 5 lecons CSS jouables de bout en bout
-- [ ] Navigation 1.6 → 2.1 → ... → 2.4 → 3.1 → ... → 3.5 fluide
-- [ ] Fallback gracieux si Supabase down (mode local)
-- [ ] 100% tests passing
-- [ ] Responsive desktop + mobile
+- [x] Progression sauvegardee dans Supabase apres chaque lecon validee
+- [x] Brouillon de code sauvegarde et restaure entre sessions
+- [x] Reprise automatique a la derniere lecon non terminee
+- [x] Module 2 : 4 lecons HTML semantique jouables de bout en bout
+- [x] Module 3 : 5 lecons CSS jouables de bout en bout
+- [x] Navigation 1.6 → 2.1 → ... → 2.4 → 3.1 → ... → 3.5 fluide
+- [x] Fallback gracieux si Supabase down (mode local)
+- [x] 100% tests passing
+- [x] Responsive desktop + mobile
 
 ### Should Have
 
-- [ ] Loading state pendant le chargement de la progression
-- [ ] Message "Connecte-toi pour sauvegarder" pour visiteurs non connectes
-- [ ] Compteur de tentatives sauvegarde (pour analytics futures)
+- [x] Loading state pendant le chargement de la progression
+- [x] Message "Connecte-toi pour sauvegarder" pour visiteurs non connectes
+- [x] Compteur de tentatives sauvegarde (pour analytics futures)
 
 ---
 
 ## Definition of Done (Sprint Level)
 
-- [ ] Toutes les stories a "Done"
-- [ ] Tests passing (objectif : +85 tests, total ~441)
-- [ ] Responsive sur mobile/tablet/desktop
-- [ ] Code reviewed
-- [ ] Deploye sur Vercel preview
-- [ ] Documentation mise a jour
-- [ ] Commits atomiques par story (pas de mega-commit)
+- [x] Toutes les stories a "Done"
+- [x] Tests passing (objectif : +85 tests, total ~441)
+- [x] Responsive sur mobile/tablet/desktop
+- [x] Code reviewed
+- [x] Deploye sur Vercel preview
+- [x] Documentation mise a jour
+- [x] Commits atomiques par story (pas de mega-commit)
 
 ---
 

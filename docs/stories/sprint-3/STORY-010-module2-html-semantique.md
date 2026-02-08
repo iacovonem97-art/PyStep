@@ -1,6 +1,6 @@
 # STORY-010: Contenu Module 2 - HTML semantique
 
-> **Status** : Ready for Development
+> **Status** : Done
 > **Sprint** : 3
 > **Epic** : 2 - Parcours d'apprentissage
 > **PRD Reference** : Section 3 (Parcours pedagogique), US-2.2
@@ -21,41 +21,41 @@
 ## Acceptance Criteria
 
 ### AC-1: 4 lecons completes avec theorie + exercice + tests
-- [ ] Lecon 2.1 : Balises semantiques (`<header>`, `<nav>`, `<main>`, `<footer>`)
-- [ ] Lecon 2.2 : Sections et articles (`<section>`, `<article>`, `<aside>`)
-- [ ] Lecon 2.3 : Formulaires basiques (`<form>`, `<input>`, `<button>`)
-- [ ] Lecon 2.4 : Tableaux (`<table>`, `<tr>`, `<td>`, `<th>`) - Mini-projet : page de contact
+- [x] Lecon 2.1 : Balises semantiques (`<header>`, `<nav>`, `<main>`, `<footer>`)
+- [x] Lecon 2.2 : Sections et articles (`<section>`, `<article>`, `<aside>`)
+- [x] Lecon 2.3 : Formulaires basiques (`<form>`, `<input>`, `<button>`)
+- [x] Lecon 2.4 : Tableaux (`<table>`, `<tr>`, `<td>`, `<th>`) - Mini-projet : page de contact
 
 ### AC-2: Format identique au Module 1
-- [ ] Chaque lecon suit le type `Lesson` (`id`, `title`, `module`, `order`, `theory`, `exercise`)
-- [ ] Theory : `content` (Markdown) + `examples` (CodeExample[])
-- [ ] Exercise : `instructions` + `starterCode` + `hints` (3 niveaux) + `tests` (ExerciseTest[])
-- [ ] Contenu en francais, ton pedagogique et encourageant
+- [x] Chaque lecon suit le type `Lesson` (`id`, `title`, `module`, `order`, `theory`, `exercise`)
+- [x] Theory : `content` (Markdown) + `examples` (CodeExample[])
+- [x] Exercise : `instructions` + `starterCode` + `hints` (3 niveaux) + `tests` (ExerciseTest[])
+- [x] Contenu en francais, ton pedagogique et encourageant
 
 ### AC-3: Contenu pedagogique de qualite
-- [ ] Theorie progressive : chaque lecon s'appuie sur les precedentes
-- [ ] Exemples de code pertinents et fonctionnels
-- [ ] Instructions d'exercice claires et sans ambiguite
-- [ ] Hints progressifs : indice → structure → solution
-- [ ] Difficulte coherente avec "Debutant+" (cf. PRD)
+- [x] Theorie progressive : chaque lecon s'appuie sur les precedentes
+- [x] Exemples de code pertinents et fonctionnels
+- [x] Instructions d'exercice claires et sans ambiguite
+- [x] Hints progressifs : indice → structure → solution
+- [x] Difficulte coherente avec "Debutant+" (cf. PRD)
 
 ### AC-4: Tests de validation fonctionnels
-- [ ] Chaque exercice a 2 a 5 tests DOM (ExerciseTest)
-- [ ] Types d'assert utilises : `exists`, `hasText`, `hasAttribute`, `count`, `textContains`
-- [ ] Les tests sont verifiables avec le validator existant (`src/features/lessons/validator.ts`)
-- [ ] Les tests passent avec la solution correcte (verifiable manuellement)
+- [x] Chaque exercice a 2 a 5 tests DOM (ExerciseTest)
+- [x] Types d'assert utilises : `exists`, `hasText`, `hasAttribute`, `count`, `textContains`
+- [x] Les tests sont verifiables avec le validator existant (`src/features/lessons/validator.ts`)
+- [x] Les tests passent avec la solution correcte (verifiable manuellement)
 
 ### AC-5: Integration dans l'application
-- [ ] Fichier `src/data/lessons/module-2.ts` cree et exporte `module2Lessons`
-- [ ] `src/data/modules.ts` mis a jour : import module2Lessons, remplace `lessons: []`
-- [ ] Module 2 accessible depuis la Course Map apres completion du Module 1
-- [ ] Navigation "Lecon suivante" fonctionne de 2.1 → 2.2 → 2.3 → 2.4
-- [ ] Apres 2.4, le Module 3 se debloque (si Module 3 a du contenu)
+- [x] Fichier `src/data/lessons/module-2.ts` cree et exporte `module2Lessons`
+- [x] `src/data/modules.ts` mis a jour : import module2Lessons, remplace `lessons: []`
+- [x] Module 2 accessible depuis la Course Map apres completion du Module 1
+- [x] Navigation "Lecon suivante" fonctionne de 2.1 → 2.2 → 2.3 → 2.4
+- [x] Apres 2.4, le Module 3 se debloque (si Module 3 a du contenu)
 
 ### AC-6: Responsive et lisibilite
-- [ ] Theorie lisible sur mobile (pas de code tronque)
-- [ ] Exemples de code dans des blocs formattes
-- [ ] starterCode fonctionne dans l'editeur Monaco existant
+- [x] Theorie lisible sur mobile (pas de code tronque)
+- [x] Exemples de code dans des blocs formattes
+- [x] starterCode fonctionne dans l'editeur Monaco existant
 
 ---
 
@@ -203,43 +203,43 @@
 ## Technical Tasks
 
 ### T1: Creer module-2.ts
-- [ ] Creer `src/data/lessons/module-2.ts`
-- [ ] Export `module2Lessons: Lesson[]` avec 4 lecons
-- [ ] Chaque lecon respecte les interfaces Lesson, LessonTheory, LessonExercise
-- [ ] Contenu pedagogique complet (theorie detaillee, pas juste des bullet points)
-- [ ] starterCode adapte a chaque exercice (commentaires guides)
+- [x] Creer `src/data/lessons/module-2.ts`
+- [x] Export `module2Lessons: Lesson[]` avec 4 lecons
+- [x] Chaque lecon respecte les interfaces Lesson, LessonTheory, LessonExercise
+- [x] Contenu pedagogique complet (theorie detaillee, pas juste des bullet points)
+- [x] starterCode adapte a chaque exercice (commentaires guides)
 
 ### T2: Mettre a jour modules.ts
-- [ ] Import `module2Lessons` depuis `./lessons/module-2`
-- [ ] Remplacer `{ ...MODULES_META[1], lessons: [] }` par `{ ...MODULES_META[1], lessons: module2Lessons }`
-- [ ] Verifier que `getLessonById`, `getNextLessonId`, `getFirstLessonId` fonctionnent avec Module 2
+- [x] Import `module2Lessons` depuis `./lessons/module-2`
+- [x] Remplacer `{ ...MODULES_META[1], lessons: [] }` par `{ ...MODULES_META[1], lessons: module2Lessons }`
+- [x] Verifier que `getLessonById`, `getNextLessonId`, `getFirstLessonId` fonctionnent avec Module 2
 
 ### T3: Tests unitaires du contenu
-- [ ] Test: module2Lessons contient exactement 4 lecons
-- [ ] Test: chaque lecon a un id format "2.X"
-- [ ] Test: chaque lecon a theory.content non vide
-- [ ] Test: chaque lecon a au moins 1 example
-- [ ] Test: chaque lecon a exercise.instructions non vide
-- [ ] Test: chaque lecon a exercise.starterCode defini
-- [ ] Test: chaque lecon a exactement 3 hints
-- [ ] Test: chaque lecon a au moins 2 tests de validation
-- [ ] Test: tous les tests utilisent des assert valides (exists, hasText, hasAttribute, count, textContains)
+- [x] Test: module2Lessons contient exactement 4 lecons
+- [x] Test: chaque lecon a un id format "2.X"
+- [x] Test: chaque lecon a theory.content non vide
+- [x] Test: chaque lecon a au moins 1 example
+- [x] Test: chaque lecon a exercise.instructions non vide
+- [x] Test: chaque lecon a exercise.starterCode defini
+- [x] Test: chaque lecon a exactement 3 hints
+- [x] Test: chaque lecon a au moins 2 tests de validation
+- [x] Test: tous les tests utilisent des assert valides (exists, hasText, hasAttribute, count, textContains)
 
 ### T4: Tests d'integration
-- [ ] Test: Module 2 apparait dans la Course Map
-- [ ] Test: Module 2 verrouille si Module 1 non complete
-- [ ] Test: Module 2 debloque si Module 1 complete
-- [ ] Test: navigation 2.1 → 2.2 → 2.3 → 2.4 fonctionne
-- [ ] Test: getLessonById('2.1') retourne la bonne lecon
-- [ ] Test: getNextLessonId('1.6') retourne '2.1'
-- [ ] Test: getNextLessonId('2.4') retourne '3.1' (ou null si Module 3 vide)
+- [x] Test: Module 2 apparait dans la Course Map
+- [x] Test: Module 2 verrouille si Module 1 non complete
+- [x] Test: Module 2 debloque si Module 1 complete
+- [x] Test: navigation 2.1 → 2.2 → 2.3 → 2.4 fonctionne
+- [x] Test: getLessonById('2.1') retourne la bonne lecon
+- [x] Test: getNextLessonId('1.6') retourne '2.1'
+- [x] Test: getNextLessonId('2.4') retourne '3.1' (ou null si Module 3 vide)
 
 ### T5: Validation manuelle
-- [ ] Ouvrir chaque lecon dans le navigateur
-- [ ] Verifier que la theorie s'affiche correctement
-- [ ] Verifier que le starterCode apparait dans l'editeur
-- [ ] Verifier que la solution correcte passe tous les tests
-- [ ] Verifier les hints progressifs
+- [x] Ouvrir chaque lecon dans le navigateur
+- [x] Verifier que la theorie s'affiche correctement
+- [x] Verifier que le starterCode apparait dans l'editeur
+- [x] Verifier que la solution correcte passe tous les tests
+- [x] Verifier les hints progressifs
 
 ---
 
@@ -264,11 +264,11 @@
 
 ## Definition of Done
 
-- [ ] 4 lecons Module 2 completes (theory + exercise + tests)
-- [ ] Fichier module-2.ts cree et integre dans modules.ts
-- [ ] Module 2 accessible dans l'app apres completion Module 1
-- [ ] Navigation inter-lecons fonctionnelle
-- [ ] All tests passing (objectif : +20 tests)
-- [ ] Contenu verifie manuellement dans le navigateur
-- [ ] Code reviewed
-- [ ] Commit : `feat(STORY-010): add Module 2 HTML semantique content`
+- [x] 4 lecons Module 2 completes (theory + exercise + tests)
+- [x] Fichier module-2.ts cree et integre dans modules.ts
+- [x] Module 2 accessible dans l'app apres completion Module 1
+- [x] Navigation inter-lecons fonctionnelle
+- [x] All tests passing (objectif : +20 tests)
+- [x] Contenu verifie manuellement dans le navigateur
+- [x] Code reviewed
+- [x] Commit : `feat(STORY-010): add Module 2 HTML semantique content`
