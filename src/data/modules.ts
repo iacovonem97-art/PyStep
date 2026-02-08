@@ -1,5 +1,7 @@
 import type { Module, ModuleMeta } from '@/types/module'
 import { module1Lessons } from './lessons/module-1'
+import { module2Lessons } from './lessons/module-2'
+import { module3Lessons } from './lessons/module-3'
 
 export const MODULES_META: ModuleMeta[] = [
   { id: 1, title: 'Les fondations HTML', description: 'Découvre les bases du HTML et crée ta première page web', lessonCount: 6 },
@@ -11,8 +13,8 @@ export const MODULES_META: ModuleMeta[] = [
 
 export const MODULES: Module[] = [
   { ...MODULES_META[0], lessons: module1Lessons },
-  { ...MODULES_META[1], lessons: [] },
-  { ...MODULES_META[2], lessons: [] },
+  { ...MODULES_META[1], lessons: module2Lessons },
+  { ...MODULES_META[2], lessons: module3Lessons },
   { ...MODULES_META[3], lessons: [] },
   { ...MODULES_META[4], lessons: [] },
 ]
